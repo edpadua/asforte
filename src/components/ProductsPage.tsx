@@ -1,5 +1,16 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { 
+  Route, 
+  Layers, 
+  Wrench, 
+  Warehouse, 
+  SquareParking, 
+  Building2, 
+  ArrowRight,
+  ShieldCheck,
+  Flame
+} from 'lucide-react';
 import { HERO_ASSETS, COMPANY_UNIDADES_ASSETS } from '../constants/assets';
 
 interface ProductsPageProps {
@@ -7,10 +18,43 @@ interface ProductsPageProps {
   onNavigateHome?: () => void;
 }
 
+const ASPHALT_APPLICATIONS = [
+  {
+    icon: Route,
+    title: 'Pavimentação',
+    desc: 'Implantação e execução de pavimentos asfálticos para vias urbanas, rodovias e loteamentos.',
+  },
+  {
+    icon: Layers,
+    title: 'Recapeamento',
+    desc: 'Renovação e reforço estrutural de pistas com aplicação de camada asfáltica de alto desempenho.',
+  },
+  {
+    icon: Wrench,
+    title: 'Conservação viária',
+    desc: 'Manutenção preventiva e corretiva de malhas viárias com máxima durabilidade operacional.',
+  },
+  {
+    icon: Warehouse,
+    title: 'Pátios industriais e logísticos',
+    desc: 'Pisos e pátios de alta capacidade de carga para tráfego pesado e manobra de carretas.',
+  },
+  {
+    icon: SquareParking,
+    title: 'Acessos e estacionamentos',
+    desc: 'Pavimentos funcionais, nivelados e de rápida liberação de tráfego para empreendimentos.',
+  },
+  {
+    icon: Building2,
+    title: 'Obras públicas e privadas de infraestrutura',
+    desc: 'Atendimento a projetos com exigências rigorosas de normas técnicas do DNIT e DER.',
+  },
+];
+
 export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenQuoteModal }) => {
   const handleScrollToApplications = (e: React.MouseEvent) => {
     e.preventDefault();
-    const el = document.getElementById('aplicacoes');
+    const el = document.getElementById('concreto-asfaltico');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
@@ -79,7 +123,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenQuoteModal }) 
                 </button>
 
                 <a
-                  href="#aplicacoes"
+                  href="#concreto-asfaltico"
                   onClick={handleScrollToApplications}
                   className="bg-transparent hover:bg-white/10 text-white font-condensed font-extrabold uppercase tracking-wider text-xs sm:text-sm px-7 sm:px-9 py-4 rounded-none border border-white/80 transition-all duration-200 cursor-pointer hover:-translate-y-0.5"
                 >
@@ -105,6 +149,95 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenQuoteModal }) 
 
         </div>
       </section>
+
+      {/* DOBRA 02: CATEGORIA 1 — CONCRETO ASFÁLTICO (DESTAQUE PRINCIPAL) */}
+      <section
+        id="concreto-asfaltico"
+        className="py-20 lg:py-28 bg-[#F4F5F7] border-b border-slate-200 relative overflow-hidden"
+      >
+        {/* Subtle background accent grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
+
+        <div className="container mx-auto px-6 sm:px-12 lg:px-16 max-w-7xl relative z-10">
+          
+          {/* Section Header */}
+          <div className="max-w-3xl mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#E3371E]/10 border border-[#E3371E]/20 text-[#E3371E] font-condensed font-bold uppercase tracking-wider text-xs mb-4">
+              <Flame className="w-3.5 h-3.5" />
+              <span>Produto Principal</span>
+            </div>
+
+            <h2 className="font-barlow font-black text-3xl sm:text-4xl lg:text-5xl text-[#102138] uppercase tracking-tight leading-tight mb-4">
+              Concreto asfáltico para obras públicas e privadas
+            </h2>
+            
+            <p className="font-barlow text-slate-700 text-base sm:text-lg lg:text-xl font-normal leading-relaxed">
+              A Asforte produz e fornece concreto asfáltico para obras de pavimentação e infraestrutura.
+            </p>
+          </div>
+
+          {/* Grid de Aplicações: 6 Cards (3 colunas no desktop, 2 no tablet, 1 no mobile) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-14">
+            {ASPHALT_APPLICATIONS.map((app, idx) => {
+              const IconComponent = app.icon;
+              return (
+                <motion.div
+                  key={app.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-30px' }}
+                  transition={{ duration: 0.5, delay: idx * 0.08, ease: 'easeOut' }}
+                  className="bg-white p-7 sm:p-8 border border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start group"
+                >
+                  {/* Theme Icon */}
+                  <div className="mb-4 transition-transform duration-300 group-hover:scale-110 origin-left">
+                    <IconComponent className="w-7 h-7 text-[#E3371E] stroke-[2.2]" />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-barlow font-extrabold text-[#192F4D] text-lg sm:text-xl uppercase tracking-tight mb-2.5 transition-colors duration-200 group-hover:text-[#E3371E]">
+                    {app.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed font-normal">
+                    {app.desc}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Call to Action Bar / Box */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-[#102138] text-white p-8 sm:p-10 border-l-4 border-[#E3371E] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-md"
+          >
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-2 text-slate-300 font-condensed uppercase tracking-wider text-xs font-semibold mb-1">
+                <ShieldCheck className="w-4 h-4 text-[#E3371E]" />
+                <span>Atendimento Técnico & Logística Própria</span>
+              </div>
+              <p className="font-barlow text-lg sm:text-xl font-bold text-white uppercase tracking-tight">
+                Pronto para cotar fornecimento contínuo ou pontual para a sua obra?
+              </p>
+            </div>
+
+            <button
+              onClick={onOpenQuoteModal}
+              className="inline-flex items-center gap-3 bg-[#E3371E] hover:bg-[#103778] text-white font-condensed font-extrabold uppercase tracking-wider text-sm px-8 py-4 rounded-none border-none transition-all duration-200 cursor-pointer shadow hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap"
+            >
+              <span>Solicitar orçamento de concreto asfáltico</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </motion.div>
+
+        </div>
+      </section>
     </div>
   );
 };
+
