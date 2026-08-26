@@ -1,0 +1,8 @@
+{
+  "name": "Remix Asforte - Concreto Asfáltico",
+  "description": "Página Home do site institucional da Asforte, fornecedora de concreto asfáltico e infraestrutura viária do Grupo PedraForte.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
