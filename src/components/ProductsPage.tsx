@@ -153,31 +153,27 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenQuoteModal }) 
       {/* DOBRA 02: CATEGORIA 1 — CONCRETO ASFÁLTICO (DESTAQUE PRINCIPAL) */}
       <section
         id="concreto-asfaltico"
-        className="py-20 lg:py-28 bg-[#F4F5F7] border-b border-slate-200 relative overflow-hidden"
+        className="py-16 sm:py-20 md:py-24 bg-[#F2F4F7] text-[#1D2A3A] border-b border-slate-200"
       >
-        {/* Subtle background accent grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
-
-        <div className="container mx-auto px-6 sm:px-12 lg:px-16 max-w-7xl relative z-10">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
-          <div className="max-w-3xl mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#E3371E]/10 border border-[#E3371E]/20 text-[#E3371E] font-condensed font-bold uppercase tracking-wider text-xs mb-4">
-              <Flame className="w-3.5 h-3.5" />
-              <span>Produto Principal</span>
+          <div className="mb-12 lg:mb-16">
+            <div className="flex items-stretch gap-4 mb-3">
+              <div className="w-1.5 bg-[#E3371E] shrink-0 min-h-[44px]" />
+              <div>
+                <h2 className="font-barlow font-black text-[#192F4D] text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] uppercase leading-tight tracking-tight">
+                  Concreto asfáltico para obras públicas e privadas
+                </h2>
+              </div>
             </div>
-
-            <h2 className="font-barlow font-black text-3xl sm:text-4xl lg:text-5xl text-[#102138] uppercase tracking-tight leading-tight mb-4">
-              Concreto asfáltico para obras públicas e privadas
-            </h2>
-            
-            <p className="font-barlow text-slate-700 text-base sm:text-lg lg:text-xl font-normal leading-relaxed">
+            <p className="font-barlow text-slate-600 text-base sm:text-lg font-normal leading-relaxed ml-0 sm:ml-5.5 max-w-3xl">
               A Asforte produz e fornece concreto asfáltico para obras de pavimentação e infraestrutura.
             </p>
           </div>
 
           {/* Grid de Aplicações: 6 Cards (3 colunas no desktop, 2 no tablet, 1 no mobile) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-14">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-14">
             {ASPHALT_APPLICATIONS.map((app, idx) => {
               const IconComponent = app.icon;
               return (
