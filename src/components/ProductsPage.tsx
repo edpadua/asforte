@@ -9,13 +9,15 @@ import {
   Building2, 
   ArrowRight,
   ShieldCheck,
-  Flame
+  Flame,
+  MessageSquare
 } from 'lucide-react';
-import { HERO_ASSETS, COMPANY_UNIDADES_ASSETS } from '../constants/assets';
+import { HERO_ASSETS, COMPANY_UNIDADES_ASSETS, CONTACT_INFO, FOOTER_ASSETS, PLANT_STRUCTURE_ASSETS, PRODUCT_ASSETS } from '../constants/assets';
 
 interface ProductsPageProps {
   onOpenQuoteModal: () => void;
   onNavigateHome?: () => void;
+  onNavigate?: (page: 'home' | 'empresa' | 'produtos', targetId?: string) => void;
 }
 
 const ASPHALT_APPLICATIONS = [
@@ -51,7 +53,7 @@ const ASPHALT_APPLICATIONS = [
   },
 ];
 
-export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenQuoteModal }) => {
+export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenQuoteModal, onNavigateHome, onNavigate }) => {
   const handleScrollToApplications = (e: React.MouseEvent) => {
     e.preventDefault();
     const el = document.getElementById('concreto-asfaltico');
@@ -133,7 +135,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenQuoteModal }) 
             </motion.div>
           </div>
 
-          {/* Right Column - Usina Asforte São José dos Campos Image */}
+          {/* Right Column - Usina Asforte Image */}
           <motion.div
             initial={{ opacity: 0, scale: 1.03 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -141,8 +143,8 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenQuoteModal }) 
             className="lg:col-span-6 relative min-h-[360px] sm:min-h-[480px] lg:min-h-screen overflow-hidden group bg-slate-900"
           >
             <img
-              src={COMPANY_UNIDADES_ASSETS.sjcImage}
-              alt="Usina de Concreto Asfáltico Asforte - São José dos Campos"
+              src={PRODUCT_ASSETS.heroImage}
+              alt="Usina de Concreto Asfáltico Asforte"
               className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-103"
             />
           </motion.div>
@@ -229,6 +231,154 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenQuoteModal }) 
               <span>Solicitar orçamento de concreto asfáltico</span>
               <ArrowRight className="w-4 h-4" />
             </button>
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* DOBRA 03: CATEGORIA 2 — DEMANDAS ESPECÍFICAS */}
+      <section
+        id="demandas-especificas"
+        className="py-16 sm:py-20 md:py-24 bg-white text-[#1D2A3A] border-b border-slate-200"
+      >
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Título e texto FORA do card do CTA */}
+          <div className="mb-10 lg:mb-12">
+            <div className="flex items-stretch gap-4 mb-3">
+              <div className="w-1.5 bg-[#E3371E] shrink-0 min-h-[44px]" />
+              <div>
+                <h2 className="font-barlow font-black text-[#192F4D] text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] uppercase leading-tight tracking-tight">
+                  Projeto com necessidade específica?
+                </h2>
+              </div>
+            </div>
+            <p className="font-barlow text-slate-600 text-base sm:text-lg font-normal leading-relaxed ml-0 sm:ml-5.5 max-w-3xl">
+              Projetos podem exigir materiais conforme necessidade técnica, aplicação, volume, prazo e condições logísticas. Envie as especificações da obra para avaliação comercial.
+            </p>
+          </div>
+
+          {/* Card do Call to Action (Estrutura da imagem com fundo de contraste e cores originais do botão) */}
+          <div className="bg-[#F2F4F7] p-8 sm:p-10 border-l-4 border-[#192F4D] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <p className="font-barlow text-lg sm:text-xl font-bold text-[#192F4D] uppercase tracking-tight max-w-2xl">
+              Pronto para enviar as diretrizes e requisitos técnicos da sua obra?
+            </p>
+
+            <div className="shrink-0 w-full sm:w-auto">
+              <button
+                onClick={onOpenQuoteModal}
+                className="inline-flex items-center justify-center gap-3 bg-[#192F4D] hover:bg-[#E3371E] text-white font-condensed font-extrabold uppercase tracking-wider text-sm px-8 py-4 rounded-none border-none transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-0.5 whitespace-nowrap w-full sm:w-auto"
+              >
+                <span>Enviar especificações do projeto</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DOBRA 04: CATEGORIA 3 — AGREGADOS MINERAIS */}
+      <section
+        id="agregados-minerais"
+        className="py-16 sm:py-20 md:py-24 bg-[#F2F4F7] text-[#1D2A3A] border-b border-slate-200"
+      >
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Título e Texto */}
+          <div className="max-w-4xl">
+            <div className="flex items-stretch gap-4 mb-3">
+              <div className="w-1.5 bg-[#E3371E] shrink-0 min-h-[44px]" />
+              <div>
+                <h2 className="font-barlow font-black text-[#192F4D] text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] uppercase leading-tight tracking-tight">
+                  Agregados minerais integrados à operação
+                </h2>
+              </div>
+            </div>
+            <p className="font-barlow text-slate-600 text-base sm:text-lg font-normal leading-relaxed ml-0 sm:ml-5.5">
+              Como parte da estrutura integrada do Grupo PedraForte, a Asforte conta com agregados minerais para aplicações em infraestrutura, construção civil, pavimentação, concreto e obras de drenagem.
+            </p>
+
+            {/* CTA Discreto em Texto Simples */}
+            <div className="mt-8 ml-0 sm:ml-5.5 pt-6 border-t border-slate-300/70">
+              <button
+                onClick={onOpenQuoteModal}
+                className="inline-flex flex-wrap items-center gap-1.5 sm:gap-2 text-[#192F4D] hover:text-[#E3371E] font-barlow text-sm sm:text-base transition-colors group cursor-pointer bg-transparent border-none p-0"
+              >
+                <span className="text-slate-600 font-normal">Precisa de agregados minerais?</span>
+                <span className="font-bold group-hover:text-[#E3371E] transition-colors">
+                  → Solicitar avaliação comercial
+                </span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* BLOCO CTA FINAL DA PÁGINA PRODUTOS */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white text-[#1D2A3A]">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="grid grid-cols-1 lg:grid-cols-12 overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300"
+          >
+            {/* Coluna Esquerda: Bloco Destaque Asforte */}
+            <div className="lg:col-span-7 xl:col-span-8 bg-[#E3371E] text-white p-6 sm:p-10 lg:p-12 flex flex-col justify-between items-start text-left">
+              <div className="space-y-4 mb-8">
+                <h2 className="font-barlow font-black text-white text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] leading-tight uppercase tracking-tight">
+                  Precisa de concreto asfáltico ou agregados para sua obra?
+                </h2>
+
+                <p className="text-white/95 text-sm sm:text-base lg:text-lg font-normal leading-relaxed max-w-2xl">
+                  Envie as informações do seu projeto para avaliação comercial. Nossa equipe orienta a escolha dos materiais conforme a necessidade técnica, volume e prazo.
+                </p>
+              </div>
+
+              {/* Botões CTAs */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
+                <a
+                  href={`https://wa.me/55${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Olá! Gostaria de solicitar um orçamento de concreto asfáltico e agregados com a Asforte.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2.5 bg-[#192F4D] hover:bg-[#102138] text-white font-barlow font-black text-xs sm:text-sm uppercase tracking-wider px-7 py-4 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 text-center"
+                >
+                  <MessageSquare className="w-4 h-4 text-white shrink-0" />
+                  <span>Solicitar orçamento pelo WhatsApp</span>
+                </a>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (onNavigate) {
+                      onNavigate('home', 'contato');
+                    } else if (onNavigateHome) {
+                      onNavigateHome();
+                      setTimeout(() => {
+                        const el = document.getElementById('contato');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
+                    }
+                  }}
+                  className="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-white/10 text-white font-barlow font-black text-xs sm:text-sm uppercase tracking-wider px-7 py-4 border border-white/80 transition-all duration-200 cursor-pointer hover:-translate-y-0.5 text-center"
+                >
+                  <span>Falar com o comercial</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
+            {/* Coluna Direita: Imagem Institucional */}
+            <div className="lg:col-span-5 xl:col-span-4 relative aspect-[4/3] lg:aspect-auto min-h-[240px] sm:min-h-[280px] lg:min-h-full bg-slate-100 overflow-hidden group">
+              <img
+                src={FOOTER_ASSETS.ctaContainerImage}
+                alt="Avaliação técnica de materiais e infraestrutura - Asforte"
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+            </div>
           </motion.div>
 
         </div>

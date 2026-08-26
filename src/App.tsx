@@ -89,6 +89,7 @@ export default function App() {
           <ProductsPage
             onOpenQuoteModal={handleOpenQuoteModal}
             onNavigateHome={() => handleNavigate('home')}
+            onNavigate={handleNavigate}
           />
         ) : (
           <>
