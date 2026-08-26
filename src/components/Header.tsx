@@ -4,8 +4,8 @@ import { Phone, Menu, X, ArrowRight, ShieldAlert } from 'lucide-react';
 
 interface HeaderProps {
   onOpenQuoteModal: () => void;
-  currentPage?: 'home' | 'empresa';
-  onNavigate?: (page: 'home' | 'empresa', targetId?: string) => void;
+  currentPage?: 'home' | 'empresa' | 'produtos';
+  onNavigate?: (page: 'home' | 'empresa' | 'produtos', targetId?: string) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal, currentPage = 'home', onNavigate }) => {
@@ -55,6 +55,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal, currentPage = 
         onNavigate('empresa');
       } else {
         window.location.hash = 'empresa';
+      }
+    } else if (href === '#produtos') {
+      if (onNavigate) {
+        onNavigate('produtos');
+      } else {
+        window.location.hash = 'produtos';
       }
     } else if (href === '#hero' || href === '#') {
       if (onNavigate) {
@@ -109,6 +115,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal, currentPage = 
             {NAV_LINKS.map((link) => {
               const isActive =
                 (link.href === '#empresa' && currentPage === 'empresa') ||
+                (link.href === '#produtos' && currentPage === 'produtos') ||
                 (link.href === '#hero' && currentPage === 'home');
 
               return (

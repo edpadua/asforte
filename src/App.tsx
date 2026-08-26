@@ -12,9 +12,10 @@ import { FinalCTASection } from './components/FinalCTASection';
 import { Footer } from './components/Footer';
 import { QuoteModal } from './components/QuoteModal';
 import { CompanyPage } from './components/CompanyPage';
+import { ProductsPage } from './components/ProductsPage';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'empresa'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'empresa' | 'produtos'>('home');
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
   useEffect(() => {
@@ -22,6 +23,8 @@ export default function App() {
       const hash = window.location.hash.toLowerCase();
       if (hash === '#empresa') {
         setCurrentPage('empresa');
+      } else if (hash === '#produtos' || hash === '#produtos-page') {
+        setCurrentPage('produtos');
       } else {
         setCurrentPage('home');
       }
@@ -32,11 +35,11 @@ export default function App() {
     return () => window.removeEventListener('hashchange', checkHash);
   }, []);
 
-  const handleNavigate = (page: 'home' | 'empresa', targetId?: string) => {
+  const handleNavigate = (page: 'home' | 'empresa' | 'produtos', targetId?: string) => {
     setCurrentPage(page);
-    window.location.hash = page === 'empresa' ? 'empresa' : targetId ? targetId : '';
+    window.location.hash = page === 'empresa' ? 'empresa' : page === 'produtos' ? 'produtos' : targetId ? targetId : '';
 
-    if (page === 'empresa') {
+    if (page === 'empresa' || page === 'produtos') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (targetId) {
       setTimeout(() => {
@@ -79,6 +82,11 @@ export default function App() {
       <main>
         {currentPage === 'empresa' ? (
           <CompanyPage
+            onOpenQuoteModal={handleOpenQuoteModal}
+            onNavigateHome={() => handleNavigate('home')}
+          />
+        ) : currentPage === 'produtos' ? (
+          <ProductsPage
             onOpenQuoteModal={handleOpenQuoteModal}
             onNavigateHome={() => handleNavigate('home')}
           />
