@@ -55,6 +55,11 @@ export const CONTACT_PAGE_ASSETS = {
   backgroundMap: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$5wts6yp13gr',
 };
 
+export const BLOG_PAGE_ASSETS = {
+  heroImage: '/imports/pavimentacao-2.jpeg',
+  backgroundMap: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$5wts6yp13gr',
+};
+
 export const COLOR_PALETTE = {
   azulInstitucional: '#223A5E',
   laranjaPrincipal: '#E3371E',
@@ -157,6 +162,7 @@ export const NAV_LINKS = [
   { name: 'Empresa', href: '#empresa' },
   { name: 'Produtos', href: '#produtos' },
   { name: 'Setores Atendidos', href: '#setores' },
+  { name: 'Blog', href: '#blog' },
   { name: 'Contato', href: '#contato' },
 ];
 

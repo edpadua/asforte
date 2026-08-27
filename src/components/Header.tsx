@@ -4,8 +4,8 @@ import { Phone, Menu, X, ArrowRight, ShieldAlert } from 'lucide-react';
 
 interface HeaderProps {
   onOpenQuoteModal: () => void;
-  currentPage?: 'home' | 'empresa' | 'produtos' | 'setores' | 'contato';
-  onNavigate?: (page: 'home' | 'empresa' | 'produtos' | 'setores' | 'contato', targetId?: string) => void;
+  currentPage?: 'home' | 'empresa' | 'produtos' | 'setores' | 'contato' | 'blog' | 'blog-post';
+  onNavigate?: (page: 'home' | 'empresa' | 'produtos' | 'setores' | 'contato' | 'blog', targetId?: string) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal, currentPage = 'home', onNavigate }) => {
@@ -68,6 +68,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal, currentPage = 
       } else {
         window.location.hash = 'setores';
       }
+    } else if (href === '#blog') {
+      if (onNavigate) {
+        onNavigate('blog');
+      } else {
+        window.location.hash = 'blog';
+      }
     } else if (href === '#contato' || href === '#orcamento') {
       if (onNavigate) {
         onNavigate('contato');
@@ -129,6 +135,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuoteModal, currentPage = 
                 (link.href === '#empresa' && currentPage === 'empresa') ||
                 (link.href === '#produtos' && currentPage === 'produtos') ||
                 (link.href === '#setores' && currentPage === 'setores') ||
+                (link.href === '#blog' && currentPage === 'blog') ||
                 (link.href === '#contato' && currentPage === 'contato') ||
                 (link.href === '#hero' && currentPage === 'home');
 

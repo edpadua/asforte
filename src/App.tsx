@@ -15,9 +15,12 @@ import { CompanyPage } from './components/CompanyPage';
 import { ProductsPage } from './components/ProductsPage';
 import { SectorsPage } from './components/SectorsPage';
 import { ContactPage } from './components/ContactPage';
+import { BlogPage, BlogPost, BLOG_POSTS } from './components/BlogPage';
+import { BlogPostPage } from './components/BlogPostPage';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'empresa' | 'produtos' | 'setores' | 'contato'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'empresa' | 'produtos' | 'setores' | 'contato' | 'blog' | 'blog-post'>('home');
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
   useEffect(() => {
@@ -25,14 +28,26 @@ export default function App() {
       const hash = window.location.hash.toLowerCase();
       if (hash === '#empresa') {
         setCurrentPage('empresa');
+        setSelectedPost(null);
       } else if (hash === '#produtos' || hash === '#produtos-page') {
         setCurrentPage('produtos');
+        setSelectedPost(null);
       } else if (hash === '#setores' || hash === '#setores-atendidos') {
         setCurrentPage('setores');
+        setSelectedPost(null);
+      } else if (hash.startsWith('#post-') || hash.startsWith('#blog/')) {
+        const foundPost = BLOG_POSTS.find((p) => hash.includes(p.id)) || BLOG_POSTS[0];
+        setSelectedPost(foundPost);
+        setCurrentPage('blog-post');
+      } else if (hash === '#blog') {
+        setCurrentPage('blog');
+        setSelectedPost(null);
       } else if (hash === '#contato' || hash === '#orcamento') {
         setCurrentPage('contato');
+        setSelectedPost(null);
       } else {
         setCurrentPage('home');
+        setSelectedPost(null);
       }
     };
 
@@ -41,11 +56,12 @@ export default function App() {
     return () => window.removeEventListener('hashchange', checkHash);
   }, []);
 
-  const handleNavigate = (page: 'home' | 'empresa' | 'produtos' | 'setores' | 'contato', targetId?: string) => {
+  const handleNavigate = (page: 'home' | 'empresa' | 'produtos' | 'setores' | 'contato' | 'blog', targetId?: string) => {
+    setSelectedPost(null);
     setCurrentPage(page);
-    window.location.hash = page === 'empresa' ? 'empresa' : page === 'produtos' ? 'produtos' : page === 'setores' ? 'setores' : page === 'contato' ? 'contato' : targetId ? targetId : '';
+    window.location.hash = page === 'empresa' ? 'empresa' : page === 'produtos' ? 'produtos' : page === 'setores' ? 'setores' : page === 'blog' ? 'blog' : page === 'contato' ? 'contato' : targetId ? targetId : '';
 
-    if (page === 'empresa' || page === 'produtos' || page === 'setores' || page === 'contato') {
+    if (page === 'empresa' || page === 'produtos' || page === 'setores' || page === 'blog' || page === 'contato') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (targetId) {
       setTimeout(() => {
@@ -59,6 +75,13 @@ export default function App() {
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+  };
+
+  const handleSelectPost = (post: BlogPost) => {
+    setSelectedPost(post);
+    setCurrentPage('blog-post');
+    window.location.hash = post.id;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleOpenQuoteModal = () => {
@@ -108,6 +131,25 @@ export default function App() {
             onOpenQuoteModal={handleOpenQuoteModal}
             onNavigateHome={() => handleNavigate('home')}
             onNavigate={handleNavigate}
+          />
+        ) : currentPage === 'blog' ? (
+          <BlogPage
+            onOpenQuoteModal={handleOpenQuoteModal}
+            onNavigateHome={() => handleNavigate('home')}
+            onNavigate={handleNavigate}
+            onSelectPost={handleSelectPost}
+          />
+        ) : currentPage === 'blog-post' ? (
+          <BlogPostPage
+            post={selectedPost || BLOG_POSTS[0]}
+            onOpenQuoteModal={handleOpenQuoteModal}
+            onNavigateHome={() => handleNavigate('home')}
+            onNavigateBlog={() => handleNavigate('blog')}
+            onNavigate={handleNavigate}
+            onSelectPost={(postId) => {
+              const target = BLOG_POSTS.find((p) => p.id === postId) || BLOG_POSTS[0];
+              handleSelectPost(target);
+            }}
           />
         ) : (
           <>
