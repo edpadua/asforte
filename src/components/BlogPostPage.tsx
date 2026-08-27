@@ -79,7 +79,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
           </div>
 
           {/* H1 com o Título do Post */}
-          <h1 className="font-barlow font-bold text-2xl sm:text-4xl md:text-[44px] text-[#192F4D] leading-tight sm:leading-[1.15] mb-5 tracking-tight max-w-4xl">
+          <h1 className="font-barlow font-bold text-2xl sm:text-4xl md:text-[44px] text-[#192F4D] leading-tight sm:leading-[1.15] mb-5 tracking-tight w-full">
             {post.title}
           </h1>
 
@@ -113,7 +113,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
 
       {/* 4. CORPO DO TEXTO (CONTEÚDO TÉCNICO ESTRUTURADO) */}
       <main className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20">
-        <div className="max-w-4xl prose prose-slate text-[#334155] text-base sm:text-lg leading-relaxed space-y-6">
+        <div className="w-full max-w-none prose prose-slate text-[#334155] text-base sm:text-lg leading-relaxed space-y-6">
           <p className="text-lg sm:text-xl text-[#192F4D] font-medium leading-relaxed">
             O concreto asfáltico — tecnicamente denominado <strong>Concreto Betuminoso Usinado a Quente (CBUQ)</strong> — é um dos materiais mais utilizados na engenharia de pavimentação mundial, sendo o elemento fundamental para garantir aderência, estanqueidade e alta resistência mecânica às vias terrestres.
           </p>
