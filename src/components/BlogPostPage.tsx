@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ChevronRight, Calendar, ArrowRight, CheckCircle2, MessageSquare, ArrowLeft } from 'lucide-react';
+import { ChevronRight, Calendar, ArrowRight, CheckCircle2, ArrowLeft } from 'lucide-react';
 import { BlogPost, BLOG_POSTS } from './BlogPage';
 
 interface BlogPostPageProps {
@@ -40,7 +40,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
   return (
     <article className="bg-white text-[#1D2A3A] font-barlow selection:bg-[#E3371E] selection:text-white pt-24 sm:pt-28 pb-16 sm:pb-24">
       {/* 1. BREADCRUMB */}
-      <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10">
         <nav aria-label="Navegação Estrutural (Breadcrumb)" className="flex items-center flex-wrap gap-2 text-xs sm:text-sm text-slate-500 font-medium">
           <button
             type="button"
@@ -67,7 +67,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
       </div>
 
       {/* 2. CABEÇALHO DO POST: Pill, H1, Data */}
-      <header className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
+      <header className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
           </div>
 
           {/* H1 com o Título do Post */}
-          <h1 className="font-barlow font-bold text-2xl sm:text-4xl md:text-[44px] text-[#192F4D] leading-tight sm:leading-[1.15] mb-5 tracking-tight">
+          <h1 className="font-barlow font-bold text-2xl sm:text-4xl md:text-[44px] text-[#192F4D] leading-tight sm:leading-[1.15] mb-5 tracking-tight max-w-4xl">
             {post.title}
           </h1>
 
@@ -95,13 +95,13 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
         </motion.div>
       </header>
 
-      {/* 3. IMAGEM DE CAPA (LARGURA TOTAL / CONTAINER DE DESTAQUE) */}
-      <section className="max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-14">
+      {/* 3. IMAGEM DE CAPA (LARGURA TOTAL DA GRADE) */}
+      <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-14">
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="relative w-full h-[280px] sm:h-[420px] md:h-[500px] overflow-hidden border border-slate-200 shadow-md bg-slate-900"
+          className="relative w-full h-[300px] sm:h-[450px] md:h-[540px] overflow-hidden border border-slate-200 shadow-md bg-slate-900"
         >
           <img
             src={post.image}
@@ -112,8 +112,8 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
       </section>
 
       {/* 4. CORPO DO TEXTO (CONTEÚDO TÉCNICO ESTRUTURADO) */}
-      <main className="max-w-[860px] mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20">
-        <div className="prose prose-slate max-w-none text-[#334155] text-base sm:text-lg leading-relaxed space-y-6">
+      <main className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20">
+        <div className="max-w-4xl prose prose-slate text-[#334155] text-base sm:text-lg leading-relaxed space-y-6">
           <p className="text-lg sm:text-xl text-[#192F4D] font-medium leading-relaxed">
             O concreto asfáltico — tecnicamente denominado <strong>Concreto Betuminoso Usinado a Quente (CBUQ)</strong> — é um dos materiais mais utilizados na engenharia de pavimentação mundial, sendo o elemento fundamental para garantir aderência, estanqueidade e alta resistência mecânica às vias terrestres.
           </p>
@@ -164,13 +164,13 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
       </main>
 
       {/* 5. CTA AO FINAL DO POST */}
-      <section id="cta-post" className="max-w-[860px] mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24">
+      <section id="cta-post" className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24">
         <div className="bg-[#192F4D] text-white p-8 sm:p-10 md:p-12 border-t-4 border-[#E3371E] shadow-xl relative overflow-hidden">
           {/* Textura geométrica sutil no fundo */}
           <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
           
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6 sm:gap-8">
-            <div className="max-w-lg">
+            <div className="max-w-xl">
               <span className="text-[#E3371E] font-condensed font-bold text-xs uppercase tracking-widest block mb-2">
                 Atendimento Técnico Especializado
               </span>
@@ -187,9 +187,8 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                 type="button"
                 id="btn-orcamento-whatsapp-post"
                 onClick={handleWhatsAppQuote}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-4 bg-[#E3371E] hover:bg-[#c92f1a] text-white font-barlow font-bold text-sm sm:text-base uppercase tracking-wider transition-all duration-200 shadow-lg shadow-[#E3371E]/30 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-4 bg-[#E3371E] hover:bg-[#c92f1a] text-white font-barlow font-bold text-sm sm:text-base uppercase tracking-wider transition-all duration-200 shadow-lg shadow-[#E3371E]/30 cursor-pointer"
               >
-                <MessageSquare className="w-5 h-5 shrink-0" />
                 <span>Solicitar orçamento pelo WhatsApp</span>
               </button>
             </div>
@@ -261,7 +260,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({
                     <span>{relPost.date}</span>
                   </div>
 
-                  <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-barlow font-bold text-[#E3371E] group-hover:text-[#192F4D] uppercase tracking-wider transition-colors">
+                    <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-barlow font-bold text-[#E3371E] group-hover:text-[#192F4D] uppercase tracking-wider transition-colors">
                     <span>Leia mais</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>
