@@ -57,7 +57,7 @@ export default function App() {
 
   const handleOpenQuoteModal = () => {
     window.open(
-      `https://wa.me/5511987654321?text=${encodeURIComponent(
+      `https://wa.me/551125003599?text=${encodeURIComponent(
         'Olá, gostaria de solicitar uma cotação de concreto asfáltico com a Asforte.'
       )}`,
       '_blank',

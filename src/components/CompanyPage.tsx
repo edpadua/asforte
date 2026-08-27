@@ -591,7 +591,7 @@ export const CompanyPage: React.FC<CompanyPageProps> = ({ onOpenQuoteModal, onNa
         </div>
       </section>
 
-      {/* DOBRA 06: CAPACIDADE OPERACIONAL EM NÚMEROS */}
+      {/* DOBRA 06: CAPACIDADE OPERACIONAL */}
       <section className="relative py-16 sm:py-20 lg:py-24 bg-slate-900 text-white overflow-hidden border-b border-slate-700">
         {/* Background Image with Dark Blue Overlay */}
         <div 
@@ -609,16 +609,16 @@ export const CompanyPage: React.FC<CompanyPageProps> = ({ onOpenQuoteModal, onNa
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="flex items-center gap-3 mb-10 lg:mb-12"
+            className="flex items-center gap-3 mb-10 lg:mb-14"
           >
             <div className="w-1.5 h-8 bg-[#E3371E] shrink-0" />
             <h2 className="font-barlow font-bold text-white text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tight">
-              CAPACIDADE OPERACIONAL EM NÚMEROS
+              CAPACIDADE OPERACIONAL
             </h2>
           </motion.div>
 
-          {/* 4 Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* 3 Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-[1160px] mx-auto">
             
             {/* Card 1 */}
             <motion.div 
@@ -626,14 +626,14 @@ export const CompanyPage: React.FC<CompanyPageProps> = ({ onOpenQuoteModal, onNa
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
-              className="bg-white p-6 sm:p-8 border-t-4 border-t-[#E3371E] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center h-full group"
+              className="bg-white p-8 sm:p-10 border-t-4 border-t-[#E3371E] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center h-full group"
             >
-              <div>
-                <h3 className="font-barlow font-bold text-[#192F4D] text-2xl sm:text-3xl lg:text-3xl leading-tight mb-3 group-hover:text-[#E3371E] transition-colors">
+              <div className="w-full">
+                <h3 className="font-barlow font-bold text-[#192F4D] text-2xl sm:text-3xl lg:text-3xl leading-tight mb-4 group-hover:text-[#E3371E] transition-colors">
                   3 unidades produtivas
                 </h3>
                 <div className="w-10 h-0.5 bg-[#E3371E] mx-auto mb-4" />
-                <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-normal">
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
                   Estrutura integrada em Santa Isabel e São José dos Campos.
                 </p>
               </div>
@@ -645,15 +645,15 @@ export const CompanyPage: React.FC<CompanyPageProps> = ({ onOpenQuoteModal, onNa
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
-              className="bg-white p-6 sm:p-8 border-t-4 border-t-[#E3371E] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center h-full group"
+              className="bg-white p-8 sm:p-10 border-t-4 border-t-[#E3371E] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center h-full group"
             >
-              <div>
-                <h3 className="font-barlow font-bold text-[#192F4D] text-2xl sm:text-3xl lg:text-3xl leading-tight mb-3 group-hover:text-[#E3371E] transition-colors">
-                  +2,5 milhões de toneladas fornecidas
+              <div className="w-full">
+                <h3 className="font-barlow font-bold text-[#192F4D] text-2xl sm:text-3xl lg:text-3xl leading-tight mb-4 group-hover:text-[#E3371E] transition-colors">
+                  Clientes atendidos
                 </h3>
                 <div className="w-10 h-0.5 bg-[#E3371E] mx-auto mb-4" />
-                <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-normal">
-                  Agregados e concreto asfáltico entregues a obras da região.
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
+                  Construtoras, prefeituras e indústrias atendidas.
                 </p>
               </div>
             </motion.div>
@@ -664,33 +664,14 @@ export const CompanyPage: React.FC<CompanyPageProps> = ({ onOpenQuoteModal, onNa
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
-              className="bg-white p-6 sm:p-8 border-t-4 border-t-[#E3371E] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center h-full group"
+              className="bg-white p-8 sm:p-10 border-t-4 border-t-[#E3371E] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center h-full group"
             >
-              <div>
-                <h3 className="font-barlow font-bold text-[#192F4D] text-2xl sm:text-3xl lg:text-3xl leading-tight mb-3 group-hover:text-[#E3371E] transition-colors">
-                  +500 clientes atendidos
-                </h3>
-                <div className="w-10 h-0.5 bg-[#E3371E] mx-auto mb-4" />
-                <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-normal">
-                  Construtoras, prefeituras e indústrias atendidas pelo grupo.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 4 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: 0.4, ease: 'easeOut' }}
-              className="bg-white p-6 sm:p-8 border-t-4 border-t-[#E3371E] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between items-center text-center h-full group"
-            >
-              <div>
-                <h3 className="font-barlow font-bold text-[#192F4D] text-2xl sm:text-3xl lg:text-3xl leading-tight mb-3 group-hover:text-[#E3371E] transition-colors">
+              <div className="w-full">
+                <h3 className="font-barlow font-bold text-[#192F4D] text-2xl sm:text-3xl lg:text-3xl leading-tight mb-4 group-hover:text-[#E3371E] transition-colors">
                   2 marcas integradas
                 </h3>
                 <div className="w-10 h-0.5 bg-[#E3371E] mx-auto mb-4" />
-                <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-normal">
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
                   Asforte e Pedreira PedraForte em uma cadeia produtiva conectada para construção, infraestrutura e pavimentação.
                 </p>
               </div>

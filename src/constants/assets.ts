@@ -144,7 +144,7 @@ export const NAV_LINKS = [
 
 export const CONTACT_INFO = {
   phone: '(11) 4656-9000',
-  whatsapp: '(11) 98765-4321',
+  whatsapp: '(11) 2500-3599',
   email: 'comercial@asforte.com.br',
   plantAddress: 'Rodovia Presidente Dutra, Km 189 - Santa Isabel / SP',
   hqAddress: 'São José dos Campos / SP - Polo Industrial Vale do Paraíba',
