@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
 import { SECTORS_PAGE_ASSETS, CONTACT_INFO, FOOTER_ASSETS } from '../constants/assets';
 
 interface SectorsPageProps {
@@ -9,63 +8,45 @@ interface SectorsPageProps {
   onNavigate?: (page: 'home' | 'empresa' | 'produtos' | 'setores', targetId?: string) => void;
 }
 
-export const SectorsPage: React.FC<SectorsPageProps> = ({ onOpenQuoteModal, onNavigateHome, onNavigate }) => {
+export const SectorsPage: React.FC<SectorsPageProps> = ({ onOpenQuoteModal }) => {
   const sectorsList = [
     {
       id: 'card-pavimentacao',
       title: 'Pavimentação',
       text: 'Concreto asfáltico para obras que exigem desempenho, regularidade no fornecimento e suporte na avaliação da aplicação.',
-      cta: 'Solicitar orçamento',
-      whatsappMessage: 'Olá! Gostaria de solicitar um orçamento de concreto asfáltico para Pavimentação com a Asforte.',
+      image: SECTORS_PAGE_ASSETS.cards.pavimentacao,
     },
     {
       id: 'card-recapeamento',
       title: 'Recapeamento',
       text: 'Atendimento a demandas de recapeamento com suporte para avaliação da aplicação, volume estimado e prazo desejado.',
-      cta: 'Solicitar orçamento',
-      whatsappMessage: 'Olá! Gostaria de solicitar um orçamento de concreto asfáltico para Recapeamento com a Asforte.',
+      image: SECTORS_PAGE_ASSETS.cards.recapeamento,
     },
     {
       id: 'card-conservacao-viaria',
       title: 'Conservação viária',
       text: 'Fornecimento para obras de conservação viária que exigem regularidade no abastecimento e organização operacional.',
-      cta: 'Falar com o comercial',
-      whatsappMessage: 'Olá! Gostaria de falar com a equipe comercial da Asforte sobre fornecimento para Conservação Viária.',
+      image: SECTORS_PAGE_ASSETS.cards.conservacaoViaria,
     },
     {
       id: 'card-patios-industriais',
       title: 'Pátios industriais e logísticos',
       text: 'Atendimento a áreas de circulação, operação, movimentação de veículos e pátios industriais ou logísticos.',
-      cta: 'Solicitar orçamento',
-      whatsappMessage: 'Olá! Gostaria de solicitar um orçamento de concreto asfáltico para Pátios Industriais e Logísticos com a Asforte.',
+      image: SECTORS_PAGE_ASSETS.cards.patiosLogisticos,
     },
     {
       id: 'card-acessos-estacionamentos',
       title: 'Acessos e estacionamentos',
       text: 'Materiais para acessos, estacionamentos, áreas internas e circulação de veículos.',
-      cta: 'Solicitar orçamento',
-      whatsappMessage: 'Olá! Gostaria de solicitar um orçamento de concreto asfáltico para Acessos e Estacionamentos com a Asforte.',
+      image: SECTORS_PAGE_ASSETS.cards.estacionamentos,
     },
     {
       id: 'card-obras-infraestrutura',
       title: 'Obras públicas e privadas de infraestrutura',
       text: 'Fornecimento de concreto asfáltico e agregados para obras públicas e privadas de infraestrutura, com suporte técnico e comercial para avaliação da necessidade do projeto.',
-      cta: 'Solicitar avaliação comercial',
-      whatsappMessage: 'Olá! Gostaria de solicitar uma avaliação comercial de fornecimento para Obras de Infraestrutura com a Asforte.',
+      image: SECTORS_PAGE_ASSETS.cards.infraestrutura,
     },
   ];
-
-  const handleCardCta = (msg?: string) => {
-    if (msg) {
-      window.open(
-        `https://wa.me/551125003599?text=${encodeURIComponent(msg)}`,
-        '_blank',
-        'noopener,noreferrer'
-      );
-    } else {
-      onOpenQuoteModal();
-    }
-  };
 
   return (
     <div className="bg-white text-[#1D2A3A] font-barlow selection:bg-[#E3371E] selection:text-white">
@@ -166,33 +147,32 @@ export const SectorsPage: React.FC<SectorsPageProps> = ({ onOpenQuoteModal, onNa
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.5, delay: idx * 0.1, ease: 'easeOut' }}
-                className="bg-white p-7 sm:p-8 md:p-9 border-t-4 border-t-[#E3371E] border-x border-b border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full group"
+                className="bg-white border-t-4 border-t-[#E3371E] border-x border-b border-slate-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-start h-full group overflow-hidden"
               >
-                <div>
+                {/* Imagem do Setor Acima dos Textos */}
+                <div className="relative w-full aspect-[16/10] overflow-hidden bg-slate-100">
+                  <img
+                    src={sector.image}
+                    alt={`${sector.title} - Asforte`}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                    loading="lazy"
+                  />
+                </div>
+
+                {/* Conteúdo Textual do Card */}
+                <div className="p-6 sm:p-7 md:p-8 flex flex-col flex-grow">
                   {/* Título do Setor */}
-                  <h3 className="font-barlow font-bold text-[#192F4D] text-2xl sm:text-2xl lg:text-[26px] uppercase tracking-tight mb-3 group-hover:text-[#E3371E] transition-colors">
+                  <h3 className="font-barlow font-bold text-[#192F4D] text-xl sm:text-2xl lg:text-[24px] uppercase tracking-tight mb-3 group-hover:text-[#E3371E] transition-colors">
                     {sector.title}
                   </h3>
 
                   {/* Linha Divisora */}
-                  <div className="w-10 h-0.5 bg-[#E3371E] mb-4" />
+                  <div className="w-10 h-0.5 bg-[#E3371E] mb-3.5" />
 
                   {/* Texto Descritivo */}
-                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal mb-8">
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                     {sector.text}
                   </p>
-                </div>
-
-                {/* Botão CTA */}
-                <div>
-                  <button
-                    id={`btn-${sector.id}`}
-                    onClick={() => handleCardCta(sector.whatsappMessage)}
-                    className="w-full inline-flex items-center justify-center gap-2 bg-[#E3371E] hover:bg-[#103778] text-white font-condensed font-extrabold uppercase tracking-wider text-xs sm:text-sm py-3.5 px-6 rounded-none border-none transition-all duration-200 cursor-pointer shadow hover:shadow-md hover:-translate-y-0.5"
-                  >
-                    <span>{sector.cta}</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
                 </div>
               </motion.div>
             ))}
