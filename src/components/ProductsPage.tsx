@@ -9,8 +9,7 @@ import {
   Building2, 
   ArrowRight,
   ShieldCheck,
-  Flame,
-  MessageSquare
+  Flame
 } from 'lucide-react';
 import { HERO_ASSETS, COMPANY_UNIDADES_ASSETS, CONTACT_INFO, FOOTER_ASSETS, PLANT_STRUCTURE_ASSETS, PRODUCT_ASSETS } from '../constants/assets';
 
@@ -344,10 +343,9 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenQuoteModal, on
                   href={`https://wa.me/55${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Olá! Gostaria de solicitar um orçamento de concreto asfáltico e agregados com a Asforte.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 bg-[#192F4D] hover:bg-[#102138] text-white font-barlow font-black text-xs sm:text-sm uppercase tracking-wider px-7 py-4 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 text-center"
+                  className="inline-flex items-center justify-center bg-[#192F4D] hover:bg-[#102138] text-white font-barlow font-black text-xs sm:text-sm uppercase tracking-wider px-7 py-3.5 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 text-center"
                 >
-                  <MessageSquare className="w-4 h-4 text-white shrink-0" />
-                  <span>Solicitar orçamento pelo WhatsApp</span>
+                  SOLICITAR ORÇAMENTO PELO WHATSAPP
                 </a>
 
                 <button

@@ -2,7 +2,7 @@ import React from 'react';
 import { LOGOS, NAV_LINKS, CONTACT_INFO, FOOTER_ASSETS } from '../constants/assets';
 
 interface FooterProps {
-  onNavigate?: (page: 'home' | 'empresa' | 'produtos', targetId?: string) => void;
+  onNavigate?: (page: 'home' | 'empresa' | 'produtos' | 'setores', targetId?: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
@@ -20,6 +20,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         onNavigate('produtos');
       } else {
         window.location.hash = 'produtos';
+      }
+    } else if (href === '#setores') {
+      if (onNavigate) {
+        onNavigate('setores');
+      } else {
+        window.location.hash = 'setores';
       }
     } else if (href === '#hero' || href === '#') {
       if (onNavigate) {

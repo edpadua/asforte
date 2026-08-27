@@ -37,6 +37,11 @@ export const PRODUCT_ASSETS = {
   heroImage: '/imports/ASFORTE-usina1.JPG',
 };
 
+export const SECTORS_PAGE_ASSETS = {
+  heroImage: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1787259832/$umvjjusrkw', // Pavimentação asfáltica em execução
+  backgroundMap: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$5wts6yp13gr',
+};
+
 export const COLOR_PALETTE = {
   azulInstitucional: '#223A5E',
   laranjaPrincipal: '#E3371E',
