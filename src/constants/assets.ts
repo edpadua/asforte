@@ -50,6 +50,11 @@ export const SECTORS_PAGE_ASSETS = {
   },
 };
 
+export const CONTACT_PAGE_ASSETS = {
+  heroImage: '/imports/ASFORTE-drone.JPG',
+  backgroundMap: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$5wts6yp13gr',
+};
+
 export const COLOR_PALETTE = {
   azulInstitucional: '#223A5E',
   laranjaPrincipal: '#E3371E',

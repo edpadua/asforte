@@ -5,7 +5,7 @@ import { SECTORS_PAGE_ASSETS, CONTACT_INFO, FOOTER_ASSETS } from '../constants/a
 interface SectorsPageProps {
   onOpenQuoteModal: () => void;
   onNavigateHome?: () => void;
-  onNavigate?: (page: 'home' | 'empresa' | 'produtos' | 'setores', targetId?: string) => void;
+  onNavigate?: (page: 'home' | 'empresa' | 'produtos' | 'setores' | 'contato', targetId?: string) => void;
 }
 
 export const SectorsPage: React.FC<SectorsPageProps> = ({ onOpenQuoteModal }) => {

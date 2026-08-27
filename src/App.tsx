@@ -14,9 +14,10 @@ import { QuoteModal } from './components/QuoteModal';
 import { CompanyPage } from './components/CompanyPage';
 import { ProductsPage } from './components/ProductsPage';
 import { SectorsPage } from './components/SectorsPage';
+import { ContactPage } from './components/ContactPage';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'empresa' | 'produtos' | 'setores'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'empresa' | 'produtos' | 'setores' | 'contato'>('home');
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
   useEffect(() => {
@@ -28,6 +29,8 @@ export default function App() {
         setCurrentPage('produtos');
       } else if (hash === '#setores' || hash === '#setores-atendidos') {
         setCurrentPage('setores');
+      } else if (hash === '#contato' || hash === '#orcamento') {
+        setCurrentPage('contato');
       } else {
         setCurrentPage('home');
       }
@@ -38,11 +41,11 @@ export default function App() {
     return () => window.removeEventListener('hashchange', checkHash);
   }, []);
 
-  const handleNavigate = (page: 'home' | 'empresa' | 'produtos' | 'setores', targetId?: string) => {
+  const handleNavigate = (page: 'home' | 'empresa' | 'produtos' | 'setores' | 'contato', targetId?: string) => {
     setCurrentPage(page);
-    window.location.hash = page === 'empresa' ? 'empresa' : page === 'produtos' ? 'produtos' : page === 'setores' ? 'setores' : targetId ? targetId : '';
+    window.location.hash = page === 'empresa' ? 'empresa' : page === 'produtos' ? 'produtos' : page === 'setores' ? 'setores' : page === 'contato' ? 'contato' : targetId ? targetId : '';
 
-    if (page === 'empresa' || page === 'produtos' || page === 'setores') {
+    if (page === 'empresa' || page === 'produtos' || page === 'setores' || page === 'contato') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (targetId) {
       setTimeout(() => {
@@ -96,6 +99,12 @@ export default function App() {
           />
         ) : currentPage === 'setores' ? (
           <SectorsPage
+            onOpenQuoteModal={handleOpenQuoteModal}
+            onNavigateHome={() => handleNavigate('home')}
+            onNavigate={handleNavigate}
+          />
+        ) : currentPage === 'contato' ? (
+          <ContactPage
             onOpenQuoteModal={handleOpenQuoteModal}
             onNavigateHome={() => handleNavigate('home')}
             onNavigate={handleNavigate}

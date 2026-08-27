@@ -16,7 +16,7 @@ import { HERO_ASSETS, COMPANY_UNIDADES_ASSETS, CONTACT_INFO, FOOTER_ASSETS, PLAN
 interface ProductsPageProps {
   onOpenQuoteModal: () => void;
   onNavigateHome?: () => void;
-  onNavigate?: (page: 'home' | 'empresa' | 'produtos', targetId?: string) => void;
+  onNavigate?: (page: 'home' | 'empresa' | 'produtos' | 'setores' | 'contato', targetId?: string) => void;
 }
 
 const ASPHALT_APPLICATIONS = [
