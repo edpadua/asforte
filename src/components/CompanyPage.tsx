@@ -617,8 +617,8 @@ export const CompanyPage: React.FC<CompanyPageProps> = ({ onOpenQuoteModal, onNa
             </h2>
           </motion.div>
 
-          {/* 3 Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-[1160px] mx-auto">
+          {/* 3 Cards Grid - Aligned with the section title */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
             
             {/* Card 1 */}
             <motion.div 
