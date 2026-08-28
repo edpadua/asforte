@@ -4,9 +4,19 @@ import { HERO_ASSETS } from '../constants/assets';
 
 interface HeroSectionProps {
   onOpenQuoteModal: () => void;
+  onNavigate?: (page: 'home' | 'empresa' | 'produtos' | 'setores' | 'contato' | 'blog', targetId?: string) => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenQuoteModal }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenQuoteModal, onNavigate }) => {
+  const handleVerProdutos = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate('produtos');
+    } else {
+      window.location.hash = 'produtos';
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  };
   return (
     <section id="hero" className="relative w-full min-h-[580px] lg:min-h-[640px] lg:max-h-[850px] lg:h-screen bg-[#192F4D] text-white overflow-hidden flex flex-col justify-center">
       {/* 2-Column Split Layout */}
@@ -64,12 +74,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenQuoteModal }) =>
                 Solicitar orçamento
               </button>
 
-              <a
-                href="#produtos"
+              <button
+                type="button"
+                id="btn-hero-ver-produtos"
+                onClick={handleVerProdutos}
                 className="bg-transparent hover:bg-white/10 text-white font-condensed font-extrabold uppercase tracking-wider text-xs sm:text-sm px-7 sm:px-9 py-4 rounded-none border border-white/80 transition-all duration-200 cursor-pointer hover:-translate-y-0.5"
               >
                 Ver produtos
-              </a>
+              </button>
             </motion.div>
           </motion.div>
         </div>

@@ -20,7 +20,7 @@ export const SectorsSection: React.FC<SectorsSectionProps> = ({ onOpenQuoteModal
   const leftImage = 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$b15e223gn1c';
 
   return (
-    <section id="setores" className="w-full bg-[#192F4D] text-white overflow-hidden">
+    <section id="setores-home" className="w-full bg-[#192F4D] text-white overflow-hidden">
       <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[520px] lg:min-h-[580px] items-stretch">
         
         {/* Left Column: Full-Width Image */}

@@ -29,22 +29,28 @@ export default function App() {
       if (hash === '#empresa') {
         setCurrentPage('empresa');
         setSelectedPost(null);
+        window.scrollTo({ top: 0, behavior: 'instant' });
       } else if (hash === '#produtos' || hash === '#produtos-page') {
         setCurrentPage('produtos');
         setSelectedPost(null);
+        window.scrollTo({ top: 0, behavior: 'instant' });
       } else if (hash === '#setores' || hash === '#setores-atendidos') {
         setCurrentPage('setores');
         setSelectedPost(null);
+        window.scrollTo({ top: 0, behavior: 'instant' });
       } else if (hash.startsWith('#post-') || hash.startsWith('#blog/')) {
         const foundPost = BLOG_POSTS.find((p) => hash.includes(p.id)) || BLOG_POSTS[0];
         setSelectedPost(foundPost);
         setCurrentPage('blog-post');
+        window.scrollTo({ top: 0, behavior: 'instant' });
       } else if (hash === '#blog') {
         setCurrentPage('blog');
         setSelectedPost(null);
+        window.scrollTo({ top: 0, behavior: 'instant' });
       } else if (hash === '#contato' || hash === '#orcamento') {
         setCurrentPage('contato');
         setSelectedPost(null);
+        window.scrollTo({ top: 0, behavior: 'instant' });
       } else {
         setCurrentPage('home');
         setSelectedPost(null);
@@ -154,7 +160,10 @@ export default function App() {
         ) : (
           <>
             {/* Dobra 1: Hero Impactante & Cinematográfico */}
-            <HeroSection onOpenQuoteModal={handleOpenQuoteModal} />
+            <HeroSection
+              onOpenQuoteModal={handleOpenQuoteModal}
+              onNavigate={handleNavigate}
+            />
 
             {/* Dobra 2: Produção Própria de Concreto Asfáltico */}
             <ProductionSection />

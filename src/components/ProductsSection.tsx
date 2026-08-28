@@ -21,7 +21,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({ onOpenQuoteMod
   ];
 
   return (
-    <section id="produtos" className="py-10 sm:py-12 md:py-14 bg-white text-[#1D2A3A]">
+    <section id="produtos-home" className="py-10 sm:py-12 md:py-14 bg-white text-[#1D2A3A]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 mb-6 lg:mb-8">
         
         {/* Top Header - 2 Columns Layout */}
