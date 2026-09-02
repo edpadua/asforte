@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2, AlertCircle, Phone, MessageCircle } from 'lucide-react';
-import { CONTACT_PAGE_ASSETS, LOCATION_ASSETS, COMPANY_UNIDADES_ASSETS } from '../constants/assets';
+import { CheckCircle2, AlertCircle, Phone, MessageCircle, Mail } from 'lucide-react';
+import { CONTACT_PAGE_ASSETS, LOCATION_ASSETS, COMPANY_UNIDADES_ASSETS, CONTACT_INFO } from '../constants/assets';
 
 interface ContactPageProps {
   onOpenQuoteModal?: () => void;
@@ -13,6 +13,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
   const [formData, setFormData] = useState({
     nome: '',
     empresa: '',
+    email: '',
     cidadeObra: '',
     produtoInteresse: '',
     aplicacao: '',
@@ -99,11 +100,41 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
     }
 
     setIsSubmitting(true);
-    // Simula envio do formulário
+
+    const subject = `Solicitação de Orçamento - ${formData.empresa ? formData.empresa + ' (' + formData.nome + ')' : formData.nome} - Asforte`;
+    const bodyLines = [
+      '==================================================',
+      'SOLICITAÇÃO DE ORÇAMENTO - ASFORTE CONCRETO ASFÁLTICO',
+      '==================================================',
+      '',
+      `• Nome: ${formData.nome}`,
+      `• Empresa: ${formData.empresa}`,
+      formData.email ? `• E-mail do Solicitante: ${formData.email}` : '',
+      `• Cidade da Obra: ${formData.cidadeObra}`,
+      `• Produto de Interesse: ${formData.produtoInteresse}`,
+      `• Tipo de Aplicação: ${formData.aplicacao}`,
+      `• Volume Estimado: ${formData.volumeEstimado || 'Não informado'}`,
+      `• Prazo Desejado: ${formData.prazoDesejado || 'A combinar'}`,
+      `• Telefone: ${formData.telefone || 'Não informado'}`,
+      `• WhatsApp: ${formData.whatsapp || 'Não informado'}`,
+      '',
+      '--------------------------------------------------',
+      'MENSAGEM / ESPECIFICAÇÕES TÉCNICAS:',
+      formData.mensagem || 'Sem observações adicionais.',
+      '==================================================',
+    ].filter(Boolean);
+
+    const mailtoUrl = `mailto:comercial@asforte.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+
     setTimeout(() => {
+      try {
+        window.location.href = mailtoUrl;
+      } catch {
+        // Fallback se o navegador bloquear redirecionamento
+      }
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 600);
+    }, 400);
   };
 
   return (
@@ -197,8 +228,11 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                   <h3 className="font-barlow font-bold text-2xl sm:text-3xl text-[#192F4D] uppercase mb-3">
                     Formulário enviado com sucesso!
                   </h3>
-                  <p className="text-slate-600 text-base sm:text-lg max-w-lg mx-auto mb-8">
-                    Agradecemos o contato. Nossa equipe técnica e comercial analisará as informações da sua obra e retornará em breve.
+                  <p className="text-slate-600 text-base sm:text-lg max-w-lg mx-auto mb-3">
+                    Sua mensagem foi direcionada para <strong className="text-[#192F4D]">comercial@asforte.com.br</strong>.
+                  </p>
+                  <p className="text-slate-500 text-sm max-w-lg mx-auto mb-8">
+                    Nossa equipe técnica e comercial analisará as informações da sua obra e retornará em breve.
                   </p>
                   <button
                     type="button"
@@ -207,6 +241,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                       setFormData({
                         nome: '',
                         empresa: '',
+                        email: '',
                         cidadeObra: '',
                         produtoInteresse: '',
                         aplicacao: '',
@@ -395,8 +430,8 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                     </div>
                   </div>
 
-                  {/* 8. Telefone & 9. WhatsApp */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  {/* 8. Telefone, 9. WhatsApp & 10. E-mail */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div>
                       <label htmlFor="telefone" className="block text-xs sm:text-sm font-bold uppercase tracking-wider text-[#192F4D] mb-2">
                         Telefone
@@ -426,9 +461,24 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                         className="w-full px-4 py-3 bg-slate-50 border border-slate-300 text-[#1D2A3A] text-sm focus:bg-white focus:border-[#192F4D] focus:ring-1 focus:ring-[#192F4D] outline-none transition-all"
                       />
                     </div>
+
+                    <div>
+                      <label htmlFor="email" className="block text-xs sm:text-sm font-bold uppercase tracking-wider text-[#192F4D] mb-2">
+                        Seu E-mail
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="seuemail@empresa.com"
+                        className="w-full px-4 py-3 bg-slate-50 border border-slate-300 text-[#1D2A3A] text-sm focus:bg-white focus:border-[#192F4D] focus:ring-1 focus:ring-[#192F4D] outline-none transition-all"
+                      />
+                    </div>
                   </div>
 
-                  {/* 10. Mensagem */}
+                  {/* 11. Mensagem */}
                   <div>
                     <label htmlFor="mensagem" className="block text-xs sm:text-sm font-bold uppercase tracking-wider text-[#192F4D] mb-2">
                       Mensagem
@@ -457,7 +507,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
 
                   {/* Texto de Apoio Abaixo do Formulário */}
                   <p className="text-slate-500 text-xs sm:text-sm leading-relaxed border-t border-slate-200 pt-6">
-                    Informe material, cidade da obra, aplicação, volume estimado e prazo desejado. Se houver especificação técnica, inclua também no campo de mensagem.
+                    Informe material, cidade da obra, aplicação, volume estimado e prazo desejado. Se houver especificação técnica, inclua também no campo de mensagem. Os dados são direcionados diretamente para <strong className="text-slate-700">comercial@asforte.com.br</strong>.
                   </p>
 
                 </form>
@@ -485,6 +535,24 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                   {/* Lista de Canais */}
                   <div className="space-y-4 mb-8">
                     
+                    {/* Canal E-mail Comercial */}
+                    <div className="p-4 bg-white/5 border border-white/10 flex items-start gap-3.5 hover:bg-white/10 transition-colors">
+                      <div className="p-2 bg-[#E3371E] text-white shrink-0 mt-0.5">
+                        <Mail className="w-4 h-4" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <span className="text-xs uppercase font-bold text-slate-300 block tracking-wider mb-0.5">
+                          E-mail Comercial
+                        </span>
+                        <a
+                          href="mailto:comercial@asforte.com.br"
+                          className="font-barlow font-bold text-base sm:text-lg text-white hover:text-[#FF7A48] transition-colors break-all block"
+                        >
+                          comercial@asforte.com.br
+                        </a>
+                      </div>
+                    </div>
+
                     {/* Canal 1 */}
                     <div className="p-4 bg-white/5 border border-white/10 flex items-start gap-3.5 hover:bg-white/10 transition-colors">
                       <div className="p-2 bg-[#E3371E] text-white shrink-0 mt-0.5">

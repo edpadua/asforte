@@ -20,19 +20,19 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="bg-[#E3371E] text-white p-6 sm:p-10 lg:p-12 shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col items-start gap-6 sm:gap-8"
+          className="bg-[#E3371E] text-white p-6 sm:p-10 lg:p-12 shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center text-center justify-center gap-6 sm:gap-8"
         >
-          <div className="space-y-3 max-w-2xl text-left">
-            <h2 className="font-barlow font-black text-white text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] leading-tight uppercase tracking-tight">
+          <div className="space-y-3 max-w-3xl text-center flex flex-col items-center">
+            <h2 className="font-barlow font-black text-white text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] leading-tight uppercase tracking-tight text-center">
               PRECISA DE CONCRETO ASFÁLTICO<br className="hidden sm:inline" /> PARA SUA OBRA?
             </h2>
 
-            <p className="text-white/95 text-sm sm:text-base lg:text-lg font-normal leading-relaxed">
+            <p className="text-white/95 text-sm sm:text-base lg:text-lg font-normal leading-relaxed text-center">
               Envie as informações do seu projeto para avaliação comercial.
             </p>
           </div>
 
-          <div>
+          <div className="flex justify-center items-center w-full sm:w-auto">
             <a
               href={whatsappUrl}
               target="_blank"

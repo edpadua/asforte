@@ -309,20 +309,20 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ onOpenQuoteModal, on
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="bg-[#E3371E] text-white p-6 sm:p-10 lg:p-12 shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col items-start gap-6 sm:gap-8"
+            className="bg-[#E3371E] text-white p-6 sm:p-10 lg:p-12 shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center text-center justify-center gap-6 sm:gap-8"
           >
-            <div className="space-y-4 max-w-2xl text-left">
-              <h2 className="font-barlow font-black text-white text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] leading-tight uppercase tracking-tight">
+            <div className="space-y-4 max-w-3xl text-center flex flex-col items-center">
+              <h2 className="font-barlow font-black text-white text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] leading-tight uppercase tracking-tight text-center">
                 Precisa de concreto asfáltico para sua obra?
               </h2>
 
-              <p className="text-white/95 text-sm sm:text-base lg:text-lg font-normal leading-relaxed">
+              <p className="text-white/95 text-sm sm:text-base lg:text-lg font-normal leading-relaxed text-center">
                 Envie as informações do seu projeto para avaliação comercial. Nossa equipe orienta a escolha dos materiais conforme a necessidade técnica, volume e prazo.
               </p>
             </div>
 
             {/* Botões CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 w-full sm:w-auto">
               <a
                 href={`https://wa.me/55${CONTACT_INFO.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Olá! Gostaria de solicitar um orçamento de concreto asfáltico para meu projeto com a Asforte.')}`}
                 target="_blank"
