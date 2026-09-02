@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, AlertCircle, Phone, MessageCircle } from 'lucide-react';
-import { CONTACT_PAGE_ASSETS, LOCATION_ASSETS } from '../constants/assets';
+import { CONTACT_PAGE_ASSETS, LOCATION_ASSETS, COMPANY_UNIDADES_ASSETS } from '../constants/assets';
 
 interface ContactPageProps {
   onOpenQuoteModal?: () => void;
@@ -28,25 +28,25 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const santaIsabelDistances = [
-    { city: 'São Paulo', distance: '60 km | 59min' },
-    { city: 'Guarulhos', distance: '42,5 km | 38min' },
-    { city: 'S.J.Campos', distance: '42,6 km | 41min' },
-    { city: 'Campinas', distance: '129 km | 1h47min' },
-    { city: 'Litoral', distance: '133 km | 1h48min' },
-    { city: 'Jundiaí', distance: '111 km | 1h32min' },
-    { city: 'Mogi das Cruzes', distance: '40,3 km | 46min' },
-    { city: 'Taubaté', distance: '81,4 km | 1h11min' },
+    { city: 'São Paulo', distance: '35 km | 32 minutos' },
+    { city: 'São José dos Campos', distance: '40 km | 36 minutos' },
+    { city: 'Litoral', distance: '130 km | 1h46 minutos' },
+    { city: 'Mogi das Cruzes', distance: '36 km | 29 minutos' },
+    { city: 'Guarulhos', distance: '12 km | 15 minutos' },
+    { city: 'Campinas', distance: '130 km | 1h45 minutos' },
+    { city: 'Jundiaí', distance: '109 km | 1h29 minutos' },
+    { city: 'Taubaté', distance: '80 km | 1h10 minutos' },
   ];
 
   const sjcDistances = [
-    { city: 'São Paulo', distance: '89,5 km | 1h40min' },
-    { city: 'Guarulhos', distance: '74,9 km | 1h09min' },
-    { city: 'Santa Isabel', distance: '42,6 km | 41min' },
-    { city: 'Campinas', distance: '150 km | 2h09min' },
-    { city: 'Litoral', distance: '91,3 km | 1h18min' },
-    { city: 'Jundiaí', distance: '149 km | 2h07min' },
-    { city: 'Mogi das Cruzes', distance: '63 km | 1h' },
-    { city: 'Taubaté', distance: '44,9 km | 47min' },
+    { city: 'São Paulo', distance: '85 km | 1h15 minutos' },
+    { city: 'São José dos Campos', distance: '16 km | 20 minutos' },
+    { city: 'Litoral', distance: '82 km | 1h' },
+    { city: 'Mogi das Cruzes', distance: '55 km | 50 minutos' },
+    { city: 'Guarulhos', distance: '58 km | 1h10 minutos' },
+    { city: 'Campinas', distance: '150 km | 1h50 minutos' },
+    { city: 'Jundiaí', distance: '145 km | 2h' },
+    { city: 'Taubaté', distance: '64 km | 45 minutos' },
   ];
 
   const whatsappUrl = `https://wa.me/551125003599?text=${encodeURIComponent(
@@ -144,7 +144,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                 transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
                 className="font-barlow font-black text-white text-3xl sm:text-4xl lg:text-[42px] xl:text-[48px] uppercase leading-[1.12] tracking-tight mb-6"
               >
-                Solicite orçamento de concreto asfáltico e agregados
+                Solicite orçamento de concreto asfáltico
               </motion.h1>
 
               {/* Texto de Abertura */}
@@ -611,7 +611,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                     </div>
                   </div>
                   <a
-                    href="https://maps.app.goo.gl/EBj6tJi75qXJ9T5WA"
+                    href={COMPANY_UNIDADES_ASSETS.santaIsabelMapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-4 py-2 bg-[#E3371E] hover:bg-[#102138] text-white font-barlow font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-sm hover:shadow hover:-translate-y-0.5 shrink-0 text-center cursor-pointer self-start sm:self-auto"
@@ -697,7 +697,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                     </div>
                   </div>
                   <a
-                    href="https://maps.app.goo.gl/duyeoyU9t2aQpZt17"
+                    href={COMPANY_UNIDADES_ASSETS.sjcMapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-4 py-2 bg-[#E3371E] hover:bg-[#102138] text-white font-barlow font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-sm hover:shadow hover:-translate-y-0.5 shrink-0 text-center cursor-pointer self-start sm:self-auto"

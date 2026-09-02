@@ -175,7 +175,10 @@ export default function App() {
             <LocationLogisticsSection onOpenQuoteModal={handleOpenQuoteModal} />
 
             {/* Dobra 6: Produtos e Aplicações */}
-            <ProductsSection onOpenQuoteModal={handleOpenQuoteModal} />
+            <ProductsSection
+              onOpenQuoteModal={handleOpenQuoteModal}
+              onNavigate={handleNavigate}
+            />
 
             {/* Dobra 7: Diferenciais Operacionais */}
             <DifferentialsSection />

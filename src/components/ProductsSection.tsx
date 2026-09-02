@@ -4,19 +4,22 @@ import { PRODUCT_ASSETS } from '../constants/assets';
 
 interface ProductsSectionProps {
   onOpenQuoteModal?: () => void;
+  onNavigate?: (page: string, sectionId?: string) => void;
 }
 
-export const ProductsSection: React.FC<ProductsSectionProps> = ({ onOpenQuoteModal }) => {
+export const ProductsSection: React.FC<ProductsSectionProps> = ({ onOpenQuoteModal, onNavigate }) => {
   const productCards = [
     {
       id: 'concreto-asfaltico',
       title: 'Concreto Asfáltico',
       image: PRODUCT_ASSETS.card1,
+      targetPage: 'produtos',
     },
     {
       id: 'materiais-necessidade-tecnica',
       title: 'Materiais Conforme Necessidade Técnica do Projeto',
       image: PRODUCT_ASSETS.card3,
+      targetPage: 'contato',
     },
   ];
 
@@ -63,7 +66,13 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({ onOpenQuoteMod
         {productCards.map((product, idx) => (
           <motion.div
             key={product.id}
-            onClick={onOpenQuoteModal}
+            onClick={() => {
+              if (onNavigate) {
+                onNavigate(product.targetPage);
+              } else if (onOpenQuoteModal) {
+                onOpenQuoteModal();
+              }
+            }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

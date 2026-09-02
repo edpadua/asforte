@@ -15,9 +15,10 @@ export const HERO_ASSETS = {
 };
 
 export const PRODUCTION_CAROUSEL_IMAGES = [
-  'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$fz4zl4bd3kc',
-  'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$gy33fxurub',
-  'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$t26efvh3yv',
+  '/imports/asforte-usina-sjc-1.webp',
+  '/imports/asforte-usina-sjc-2.webp',
+  '/imports/asforte-usina-sta-isabel-1.webp',
+  '/imports/asforte-usina-sta-isabel-2.webp',
 ];
 
 export const INTEGRATION_ASSETS = {
@@ -34,7 +35,7 @@ export const PRODUCT_ASSETS = {
   card1: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1787259832/$umvjjusrkw',
   card2: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$h0g8y3k8nha',
   card3: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1787259994/$gqmmbvi8vq6',
-  heroImage: '/imports/ASFORTE-usina1.JPG',
+  heroImage: '/imports/ASFORTE-usina1.webp',
 };
 
 export const SECTORS_PAGE_ASSETS = {
@@ -51,7 +52,7 @@ export const SECTORS_PAGE_ASSETS = {
 };
 
 export const CONTACT_PAGE_ASSETS = {
-  heroImage: '/imports/ASFORTE-drone.JPG',
+  heroImage: '/imports/ASFORTE-drone.webp',
   backgroundMap: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$5wts6yp13gr',
 };
 
@@ -124,23 +125,22 @@ export const COMPANY_HERO_ASSETS = {
 };
 
 export const COMPANY_CAROUSEL_IMAGES = [
-  'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$8ko3pcy8u8c',
-  'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$exxzgvejqg',
-  'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$le4xu4r6o8m',
-  'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$bhv34omy1up',
-  'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$tq10l7v9lp',
+  '/imports/asforte-usina-sjc-1.webp',
+  '/imports/asforte-usina-sjc-2.webp',
+  '/imports/asforte-usina-sta-isabel-1.webp',
+  '/imports/asforte-usina-sta-isabel-2.webp',
 ];
 
 export const COMPANY_UNIDADES_ASSETS = {
   sjcImage: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$63hn1ghhyia',
-  sjcMapUrl: 'https://maps.app.goo.gl/duyeoyU9t2aQpZt17',
+  sjcMapUrl: 'https://www.google.com/maps/search/?api=1&query=Asforte+Concreto+Asf%C3%A1ltico+Av.+S%C3%A3o+Afonso+Maria,+381,+Bairro+da+Pernambucana,+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP',
   santaIsabelImage: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$nhwbxe39ebi',
-  santaIsabelMapUrl: 'https://maps.app.goo.gl/EBj6tJi75qXJ9T5WA',
+  santaIsabelMapUrl: 'https://www.google.com/maps/search/?api=1&query=Pedreira+Pedraforte+Rod.+Pres.+Dutra,+KM+194,5,+Santa+Isabel+-+SP',
 };
 
 export const COMPANY_CONTROLE_ASSETS = {
   image1: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$wonc3psxd1b',
-  image2: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$d6mmjo2mdm6',
+  image2: '/imports/asforte-equipe.webp',
 };
 
 export const COMPANY_FROTA_ASSETS = {
@@ -150,7 +150,7 @@ export const COMPANY_FROTA_ASSETS = {
 };
 
 export const COMPANY_LICENSES_ASSETS = {
-  mainImage: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$5zpcfeesujv',
+  mainImage: '/imports/asforte-usina-sjc-1.webp',
   licenses: [
     'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$0rqbbb9plrwd',
     'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$n6fuv4lhto',

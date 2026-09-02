@@ -44,7 +44,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Como solicitar orçamento de concreto asfáltico?',
     category: 'Concreto asfáltico',
     date: '17 Jun 2025',
-    image: '/imports/ASFORTE-usina1.JPG',
+    image: '/imports/ASFORTE-usina1.webp',
   },
   {
     id: 'post-3',
@@ -65,7 +65,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: 'Como a integração entre concreto asfáltico e agregados minerais apoia o fornecimento?',
     category: 'Agregados minerais',
     date: '08 Jul 2025',
-    image: '/imports/ASFORTE-drone.JPG',
+    image: '/imports/ASFORTE-drone.webp',
   },
   {
     id: 'post-6',

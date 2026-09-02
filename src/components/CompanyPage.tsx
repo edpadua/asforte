@@ -602,22 +602,7 @@ export const CompanyPage: React.FC<CompanyPageProps> = ({ onOpenQuoteModal, onNa
         <div className="absolute inset-0 bg-gradient-to-t from-[#102138] via-[#102138]/80 to-[#102138]/60" />
 
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          {/* Header */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="flex items-center gap-3 mb-10 lg:mb-14"
-          >
-            <div className="w-1.5 h-8 bg-[#E3371E] shrink-0" />
-            <h2 className="font-barlow font-bold text-white text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tight">
-              CAPACIDADE OPERACIONAL
-            </h2>
-          </motion.div>
-
-          {/* 3 Cards Grid - Aligned with the section title */}
+          {/* 3 Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
             
             {/* Card 1 */}
