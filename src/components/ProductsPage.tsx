@@ -580,50 +580,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* SEÇÃO 3: BLOCO DE CONEXÃO OPERACIONAL E AGREGADOS INTEGRADOS              */}
-      {/* ========================================================================= */}
-      <section
-        id="agregados-integrados"
-        className="py-16 sm:py-20 bg-white text-[#1D2A3A] border-b border-slate-200"
-      >
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#F2F4F7] p-8 sm:p-12 border-l-4 border-[#192F4D] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-            <div className="max-w-3xl space-y-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#E3371E]">
-                Estrutura Integrada do Grupo PedraForte
-              </span>
-              <h3 className="font-barlow font-black text-[#192F4D] text-2xl sm:text-3xl uppercase leading-tight tracking-tight">
-                Agregados minerais e capacidade operacional completa
-              </h3>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Além do concreto asfáltico usinado, a estrutura operacional conta com fornecimento
-                integrado de agregados minerais (brita graduada, rachão, areia de brita e pedrisco)
-                para camadas de base, sub-base e drenagem de grandes obras.
-              </p>
-            </div>
-
-            <div className="shrink-0 w-full sm:w-auto">
-              <button
-                type="button"
-                onClick={() => {
-                  if (onNavigate) {
-                    onNavigate('contato', 'formulario-orcamento');
-                  } else {
-                    onOpenQuoteModal();
-                  }
-                }}
-                className="inline-flex items-center justify-center gap-3 bg-[#192F4D] hover:bg-[#E3371E] text-white font-condensed font-extrabold uppercase tracking-wider text-sm px-8 py-4 rounded-none border-none transition-all duration-200 cursor-pointer shadow-sm hover:shadow-md hover:-translate-y-0.5 whitespace-nowrap w-full sm:w-auto"
-              >
-                <span>Falar com especialista</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* SEÇÃO 4: BLOCO CTA FINAL DA PÁGINA PRODUTOS (PADRÃO INSTITUCIONAL)        */}
+      {/* SEÇÃO 3: BLOCO CTA FINAL DA PÁGINA PRODUTOS (PADRÃO INSTITUCIONAL)        */}
       {/* ========================================================================= */}
       <section className="py-12 sm:py-16 md:py-20 bg-white text-[#1D2A3A]">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
