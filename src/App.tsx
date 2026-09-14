@@ -22,6 +22,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<'home' | 'empresa' | 'produtos' | 'setores' | 'contato' | 'blog' | 'blog-post'>('home');
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [preselectedProduct, setPreselectedProduct] = useState<string>('');
 
   useEffect(() => {
     const checkHash = () => {
@@ -90,6 +91,21 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleSelectProductForQuote = (productName: string) => {
+    setPreselectedProduct(productName);
+    setSelectedPost(null);
+    setCurrentPage('contato');
+    window.location.hash = 'contato';
+    setTimeout(() => {
+      const el = document.getElementById('formulario-orcamento');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   const handleOpenQuoteModal = () => {
     window.open(
       `https://wa.me/551125003599?text=${encodeURIComponent(
@@ -125,6 +141,7 @@ export default function App() {
             onOpenQuoteModal={handleOpenQuoteModal}
             onNavigateHome={() => handleNavigate('home')}
             onNavigate={handleNavigate}
+            onSelectProductForQuote={handleSelectProductForQuote}
           />
         ) : currentPage === 'setores' ? (
           <SectorsPage
@@ -137,6 +154,7 @@ export default function App() {
             onOpenQuoteModal={handleOpenQuoteModal}
             onNavigateHome={() => handleNavigate('home')}
             onNavigate={handleNavigate}
+            preselectedProduct={preselectedProduct}
           />
         ) : currentPage === 'blog' ? (
           <BlogPage

@@ -7,22 +7,35 @@ interface ContactPageProps {
   onOpenQuoteModal?: () => void;
   onNavigateHome?: () => void;
   onNavigate?: (page: 'home' | 'empresa' | 'produtos' | 'setores' | 'contato', targetId?: string) => void;
+  preselectedProduct?: string;
 }
 
-export const ContactPage: React.FC<ContactPageProps> = () => {
+export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProduct }) => {
   const [formData, setFormData] = useState({
     nome: '',
     empresa: '',
     email: '',
     cidadeObra: '',
-    produtoInteresse: '',
+    produtoInteresse: preselectedProduct || '',
     aplicacao: '',
     volumeEstimado: '',
     prazoDesejado: '',
     telefone: '',
     whatsapp: '',
-    mensagem: '',
+    mensagem: preselectedProduct ? `Solicitação de cotação para o produto: ${preselectedProduct}.` : '',
   });
+
+  React.useEffect(() => {
+    if (preselectedProduct) {
+      setFormData((prev) => ({
+        ...prev,
+        produtoInteresse: preselectedProduct,
+        mensagem: prev.mensagem && !prev.mensagem.includes('Solicitação de cotação para o produto:')
+          ? `${prev.mensagem}\n(Produto: ${preselectedProduct})`
+          : `Solicitação de cotação para o produto: ${preselectedProduct}.`,
+      }));
+    }
+  }, [preselectedProduct]);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -353,9 +366,17 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                         } text-[#1D2A3A] text-sm focus:bg-white focus:border-[#192F4D] focus:ring-1 focus:ring-[#192F4D] outline-none transition-all`}
                       >
                         <option value="">Selecione o produto</option>
-                        <option value="Concreto asfáltico">Concreto asfáltico</option>
+                        {formData.produtoInteresse &&
+                          !['Concreto asfáltico', 'Agregados minerais', 'Não sei ainda'].includes(
+                            formData.produtoInteresse
+                          ) && (
+                            <option value={formData.produtoInteresse}>
+                              {formData.produtoInteresse} (Selecionado)
+                            </option>
+                          )}
+                        <option value="Concreto asfáltico">Concreto asfáltico (Geral)</option>
                         <option value="Agregados minerais">Agregados minerais</option>
-                        <option value="Não sei ainda">Não sei ainda</option>
+                        <option value="Não sei ainda">Não sei ainda / A definir</option>
                       </select>
                       {errors.produtoInteresse && (
                         <p className="mt-1.5 text-xs text-red-600 flex items-center gap-1 font-medium">
