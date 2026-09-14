@@ -4,6 +4,10 @@ export interface ProductItemData {
   technicalDescription: string;
   application: string;
   normTag?: string;
+  commonApplications?: string;
+  fullApplication?: string;
+  technicalNotes?: string;
+  spreadsheetLink?: string;
 }
 
 export interface ProductFamily {
@@ -462,7 +466,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
   },
   {
     id: 'reciclado',
-    number: 15,
+    number: 16,
     name: 'Reciclado',
     badge: 'Economia Circular / RAP',
     description:
@@ -496,7 +500,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
   },
   {
     id: 'areia-asfalto',
-    number: 16,
+    number: 17,
     name: 'Areia-Asfalto',
     badge: 'Agregado Miúdo',
     description:

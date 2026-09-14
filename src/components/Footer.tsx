@@ -86,7 +86,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </a>
 
             <p className="text-slate-300 text-sm leading-relaxed font-normal max-w-sm">
-              Fornecimento contínuo de concreto asfáltico usinado a quente (CBUQ) com elevado rigor tecnológico, logística otimizada e suprimento integrado de agregados minerais.
+              Concreto e misturas asfálticas para pavimentação, recapeamento, conservação viária e infraestrutura, com estrutura produtiva e suporte técnico.
             </p>
 
             {/* Institutional Endorsement - PedraForte Logo */}

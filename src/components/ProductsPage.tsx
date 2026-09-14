@@ -12,7 +12,8 @@ import {
   SlidersHorizontal,
   X,
   FileCheck2,
-  Hammer
+  Hammer,
+  FileSpreadsheet
 } from 'lucide-react';
 import { HERO_ASSETS, PRODUCT_ASSETS, CONTACT_INFO } from '../constants/assets';
 import { PRODUCT_FAMILIES, ProductFamily, ProductItemData } from '../data/productsData';
@@ -40,7 +41,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
 
   // Tags para filtro rápido no topo do catálogo
   const filterTags = [
-    { id: 'todos', label: 'Todas as famílias (16)' },
+    { id: 'todos', label: `Todas as famílias (${PRODUCT_FAMILIES.length})` },
     { id: 'der', label: 'Norma DER/SP' },
     { id: 'pmsp', label: 'PMSP (Urbano)' },
     { id: 'dnit', label: 'DNIT' },
@@ -295,7 +296,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
               </div>
             </div>
             <p className="font-barlow text-slate-600 text-base sm:text-lg font-normal leading-relaxed ml-0 sm:ml-5.5 max-w-3xl">
-              Navegue pelas 16 famílias de misturas asfálticas fornecidas pela Asforte. Cada categoria
+              Navegue pelas famílias de misturas asfálticas fornecidas pela Asforte. Cada categoria
               pode ser expandida para visualização de especificações normativas, descrições técnicas
               e indicações de aplicação.
             </p>
@@ -508,28 +509,69 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                                   </div>
 
                                   {/* Grid de Informações Técnicas: Descrição Técnica & Aplicação */}
-                                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 bg-slate-50/70 p-4 sm:p-5 border border-slate-200/80 mb-4">
-                                    {/* Descrição Técnica */}
-                                    <div className="lg:col-span-7">
-                                      <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#192F4D] mb-1.5">
-                                        <FileCheck2 className="w-3.5 h-3.5 text-[#E3371E]" />
-                                        Descrição Técnica
-                                      </span>
-                                      <p className="text-slate-600 text-sm leading-relaxed">
-                                        {item.technicalDescription}
-                                      </p>
+                                  <div className="bg-slate-50/70 p-4 sm:p-5 border border-slate-200/80 mb-4">
+                                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
+                                      {/* Descrição Técnica */}
+                                      <div className="lg:col-span-7">
+                                        <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#192F4D] mb-1.5">
+                                          <FileCheck2 className="w-3.5 h-3.5 text-[#E3371E]" />
+                                          Descrição Técnica
+                                        </span>
+                                        <p className="text-slate-600 text-sm leading-relaxed">
+                                          {item.technicalDescription}
+                                        </p>
+                                      </div>
+
+                                      {/* Aplicação */}
+                                      <div className="lg:col-span-5 lg:border-l lg:border-slate-200 lg:pl-6">
+                                        <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#192F4D] mb-1.5">
+                                          <Hammer className="w-3.5 h-3.5 text-[#192F4D]" />
+                                          Aplicação Recomendada
+                                        </span>
+                                        <p className="text-slate-700 text-sm font-medium leading-relaxed">
+                                          {item.application}
+                                        </p>
+                                        {item.commonApplications && item.commonApplications !== item.application && (
+                                          <p className="text-slate-600 text-xs mt-2 font-normal">
+                                            <strong className="text-[#192F4D] font-bold uppercase tracking-wider text-[11px] block">Aplicações comuns:</strong>
+                                            {item.commonApplications}
+                                          </p>
+                                        )}
+                                      </div>
                                     </div>
 
-                                    {/* Aplicação */}
-                                    <div className="lg:col-span-5 lg:border-l lg:border-slate-200 lg:pl-6">
-                                      <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#192F4D] mb-1.5">
-                                        <Hammer className="w-3.5 h-3.5 text-[#192F4D]" />
-                                        Aplicação Recomendada
-                                      </span>
-                                      <p className="text-slate-700 text-sm font-medium leading-relaxed">
-                                        {item.application}
-                                      </p>
-                                    </div>
+                                    {/* Informações Complementares da Planilha Técnica de Produtos */}
+                                    {(item.fullApplication || item.technicalNotes || item.spreadsheetLink) && (
+                                      <div className="mt-4 pt-3.5 border-t border-slate-200/90 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 bg-white/90 p-3.5 border border-slate-200/70">
+                                        {item.fullApplication && (
+                                          <div>
+                                            <span className="font-bold text-[#192F4D] block uppercase tracking-wider text-[11px] mb-0.5">
+                                              Ver aplicação completa do produto:
+                                            </span>
+                                            <span className="text-slate-600 text-xs italic">{item.fullApplication}</span>
+                                          </div>
+                                        )}
+                                        {item.technicalNotes && (
+                                          <div>
+                                            <span className="font-bold text-[#192F4D] block uppercase tracking-wider text-[11px] mb-0.5">
+                                              Observação técnica:
+                                            </span>
+                                            <span className="text-slate-600 text-xs italic">{item.technicalNotes}</span>
+                                          </div>
+                                        )}
+                                        {item.spreadsheetLink && (
+                                          <div className="md:col-span-2 lg:col-span-1">
+                                            <span className="font-bold text-[#192F4D] block uppercase tracking-wider text-[11px] mb-0.5">
+                                              Link da planilha de produtos:
+                                            </span>
+                                            <span className="text-[#192F4D] text-xs font-semibold inline-flex items-center gap-1.5">
+                                              <FileSpreadsheet className="w-3.5 h-3.5 text-[#E3371E]" />
+                                              {item.spreadsheetLink}
+                                            </span>
+                                          </div>
+                                        )}
+                                      </div>
+                                    )}
                                   </div>
 
                                   {/* Botão/Link Sutil para Solicitar Orçamento deste Produto */}
