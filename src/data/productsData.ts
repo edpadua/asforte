@@ -34,7 +34,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Mistura asfáltica usinada a quente conforme nomenclatura tradicional DER, de granulometria relativamente mais graúda. Necessário validar o traço atualmente utilizado e sua correspondência com a classificação DER vigente.',
         application: 'Camada de ligação, binder e aplicações estruturais conforme projeto.',
-        normTag: 'DER',
+        normTag: 'DER Faixa II',
       },
       {
         id: 'cbuq-faixa-iii-der',
@@ -42,7 +42,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Concreto betuminoso usinado a quente conforme classificação tradicional Faixa III do DER. Produto cadastrado sem indicação explícita de TNM ou ligante.',
         application: 'Principalmente camada de rolamento/revestimento, conforme projeto e especificação contratual.',
-        normTag: 'DER',
+        normTag: 'DER Faixa III',
       },
       {
         id: 'cbuq-faixa-iii-der-12-5',
@@ -50,7 +50,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Mistura asfáltica densa com referência granulométrica de 12,5 mm, associada à Faixa III DER.',
         application: 'Camada de rolamento e revestimento superficial.',
-        normTag: 'DER',
+        normTag: 'DER 12,5 mm',
       },
       {
         id: 'cbuq-faixa-iv-der',
@@ -58,7 +58,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Mistura asfáltica de granulometria fina conforme nomenclatura tradicional DER. Necessário validar correspondência com classificação atual.',
         application: 'Reperfilagem, regularização e revestimentos de menor espessura.',
-        normTag: 'DER',
+        normTag: 'DER Faixa IV',
       },
       {
         id: 'cbuq-fx-12-5-der-sp-cap-50-70',
@@ -66,15 +66,15 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Concreto asfáltico com TNM de 12,5 mm produzido com CAP 50/70. É uma das descrições tecnicamente mais completas do cadastro atual.',
         application: 'Camada de rolamento/revestimento.',
-        normTag: 'DER / CAP 50/70',
+        normTag: 'CAP 50/70',
       },
       {
-        id: 'cbuq-binder-19-0-der',
+        id: 'cbuq-binder-19-der',
         name: 'CBUQ Binder 19,0 mm DER',
         technicalDescription:
           'Concreto asfáltico com TNM de 19 mm destinado principalmente à camada intermediária de ligação — binder.',
         application: 'Binder entre base e camada de rolamento; reforço estrutural do pavimento.',
-        normTag: 'DER',
+        normTag: 'Binder 19 mm',
       },
     ],
   },
@@ -132,7 +132,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
     id: 'cauq-modificado',
     number: 3,
     name: 'CAUQ Modificado',
-    badge: 'Polímero Especial',
+    badge: 'Polímero / Alto Desempenho',
     description:
       'Misturas asfálticas modificadas com polímero, desenvolvidas para aplicações que demandam características específicas de desempenho.',
     items: [
@@ -142,7 +142,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Concreto asfáltico DER 25 produzido com ligante asfáltico modificado por polímero.',
         application: 'Camadas estruturais submetidas a solicitações superiores às misturas convencionais.',
-        normTag: 'Polímero',
+        normTag: 'Polímero DER 25',
       },
       {
         id: 'cauq-der-19-polimero',
@@ -150,7 +150,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Mistura DER 19 utilizando ligante modificado por polímero para aumento de desempenho.',
         application: 'Binder, ligação e aplicações de tráfego elevado.',
-        normTag: 'Polímero',
+        normTag: 'Polímero DER 19',
       },
       {
         id: 'cauq-der-12-5-polimero',
@@ -158,7 +158,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Mistura de rolamento DER 12,5 utilizando ligante modificado por polímero.',
         application: 'Revestimento de rodovias, corredores e pavimentos de maior solicitação.',
-        normTag: 'Polímero',
+        normTag: 'Polímero DER 12,5',
       },
       {
         id: 'cauq-der-9-5-polimero',
@@ -166,15 +166,73 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Mistura fina DER 9,5 utilizando ligante asfáltico modificado por polímero.',
         application: 'Rolamento e revestimentos finos de alto desempenho.',
-        normTag: 'Polímero',
+        normTag: 'Polímero DER 9,5',
+      },
+    ],
+  },
+  {
+    id: 'cbuq-der-especificas',
+    number: 4,
+    name: 'CBUQ / DER (Revestimentos e Camadas Específicas)',
+    badge: 'DER / Revestimentos & Específicas',
+    description:
+      'Concreto betuminoso usinado a quente conforme especificações DER para diferentes aplicações de pavimentação.',
+    items: [
+      {
+        id: 'cbuq-esp-faixa-ii-der',
+        name: 'CBUQ Faixa II DER',
+        technicalDescription:
+          'Mistura asfáltica usinada a quente conforme nomenclatura tradicional DER, de granulometria relativamente mais graúda.',
+        application: 'Camada de ligação, binder e aplicações estruturais conforme projeto.',
+        normTag: 'DER Faixa II',
+      },
+      {
+        id: 'cbuq-esp-faixa-iii-der',
+        name: 'CBUQ Faixa III DER',
+        technicalDescription:
+          'Concreto betuminoso usinado a quente conforme classificação tradicional Faixa III do DER.',
+        application: 'Principalmente camada de rolamento/revestimento, conforme projeto e especificação contratual.',
+        normTag: 'DER Faixa III',
+      },
+      {
+        id: 'cbuq-esp-faixa-iii-der-12-5',
+        name: 'CBUQ Faixa III DER 12,5 mm',
+        technicalDescription:
+          'Mistura asfáltica densa com referência granulométrica de 12,5 mm, associada à Faixa III DER.',
+        application: 'Camada de rolamento e revestimento superficial.',
+        normTag: 'DER 12,5 mm',
+      },
+      {
+        id: 'cbuq-esp-faixa-iv-der',
+        name: 'CBUQ Faixa IV DER',
+        technicalDescription:
+          'Mistura asfáltica de granulometria fina conforme nomenclatura tradicional DER.',
+        application: 'Reperfilagem, regularização e revestimentos de menor espessura.',
+        normTag: 'DER Faixa IV',
+      },
+      {
+        id: 'cbuq-esp-fx-12-5-der-sp-cap-50-70',
+        name: 'CBUQ FX 12,5 – DER/SP – CAP 50/70',
+        technicalDescription:
+          'Concreto asfáltico com TNM de 12,5 mm produzido com CAP 50/70.',
+        application: 'Camada de rolamento/revestimento.',
+        normTag: 'CAP 50/70',
+      },
+      {
+        id: 'cbuq-esp-binder-19-der',
+        name: 'CBUQ Binder 19,0 mm DER',
+        technicalDescription:
+          'Concreto asfáltico com TNM de 19 mm destinado principalmente à camada intermediária de ligação — binder.',
+        application: 'Binder entre base e camada de rolamento; reforço estrutural do pavimento.',
+        normTag: 'Binder 19 mm',
       },
     ],
   },
   {
     id: 'cbuq-pmsp',
-    number: 4,
+    number: 5,
     name: 'CBUQ / PMSP',
-    badge: 'Urbano PMSP',
+    badge: 'Norma Municipal PMSP',
     description:
       'Misturas asfálticas conforme especificações PMSP para aplicações em pavimentação urbana.',
     items: [
@@ -184,7 +242,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Mistura asfáltica segundo especificações/contratações municipais da PMSP, usualmente associada a camada de ligação.',
         application: 'Binder e pavimentação urbana conforme projeto PMSP.',
-        normTag: 'PMSP',
+        normTag: 'PMSP Faixa II',
       },
       {
         id: 'cbuq-faixa-iii-pmsp',
@@ -192,7 +250,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Concreto betuminoso usinado a quente conforme especificação própria da Prefeitura de São Paulo.',
         application: 'Camada asfáltica de vias urbanas, recapeamento e pavimentação conforme especificação PMSP.',
-        normTag: 'PMSP',
+        normTag: 'PMSP Faixa III',
       },
       {
         id: 'cbuq-faixa-iv-pmsp',
@@ -200,7 +258,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Mistura asfáltica produzida conforme especificação própria da Prefeitura de São Paulo, distinta da especificação DER.',
         application: 'Pavimentação, manutenção e recapeamento de vias municipais conforme projeto PMSP.',
-        normTag: 'PMSP',
+        normTag: 'PMSP Faixa IV',
       },
       {
         id: 'cbuq-faixa-v',
@@ -208,13 +266,13 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Mistura asfáltica fina cadastrada como Faixa V. A origem normativa e o respectivo traço precisam ser confirmados.',
         application: 'Manutenção, reperfilagem ou revestimento fino, conforme especificação contratual.',
-        normTag: 'PMSP / Urbano',
+        normTag: 'Faixa V',
       },
     ],
   },
   {
     id: 'concreto-asfaltico-dnit',
-    number: 5,
+    number: 6,
     name: 'Concreto Asfáltico DNIT',
     badge: 'Norma DNIT 031/2024',
     description:
@@ -256,9 +314,9 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
   },
   {
     id: 'gap-graded',
-    number: 6,
+    number: 7,
     name: 'Gap Graded',
-    badge: 'Graduação Descontínua',
+    badge: 'Descontínua / Alta Performance',
     description:
       'Misturas asfálticas com graduação diferenciada para aplicações específicas de pavimentação.',
     items: [
@@ -268,7 +326,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Mistura asfáltica de granulometria descontínua utilizando ligante modificado por polímero.',
         application: 'Camada de rolamento de alto desempenho e obras rodoviárias especiais.',
-        normTag: 'Polímero',
+        normTag: 'Gap + Polímero',
       },
       {
         id: 'gap-graded-asfalto-borracha',
@@ -276,15 +334,15 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Mistura de granulometria descontínua utilizando ligante asfalto-borracha.',
         application: 'Revestimentos rodoviários de alto desempenho e tráfego intenso.',
-        normTag: 'Asfalto-Borracha',
+        normTag: 'Gap + Borracha',
       },
     ],
   },
   {
     id: 'sma-stone-matrix-asphalt',
-    number: 7,
+    number: 8,
     name: 'SMA — Stone Matrix Asphalt',
-    badge: 'Alto Desempenho',
+    badge: 'SMA / Alta Solicitação',
     description:
       'Mistura asfáltica de graduação descontínua com estrutura formada por agregado graúdo e matriz asfáltica.',
     items: [
@@ -294,15 +352,15 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
         technicalDescription:
           'Mistura de alto desempenho com esqueleto pétreo descontínuo, elevado contato pedra-pedra e mástique asfáltico estabilizado, normalmente utilizando ligante modificado.',
         application: 'Rodovias, concessionárias, tráfego pesado e revestimentos de alta solicitação.',
-        normTag: 'SMA Especial',
+        normTag: 'SMA',
       },
     ],
   },
   {
     id: 'asfalto-borracha',
-    number: 8,
+    number: 9,
     name: 'Asfalto-Borracha',
-    badge: 'Ecológico / Durabilidade',
+    badge: 'Ecológico / Alta Elasticidade',
     description:
       'Misturas asfálticas produzidas com asfalto-borracha para aplicações específicas de pavimentação.',
     items: [
@@ -342,9 +400,9 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
   },
   {
     id: 'alto-modulo',
-    number: 9,
+    number: 10,
     name: 'Alto Módulo',
-    badge: 'Alta Capacidade Estrutural',
+    badge: 'Estrutural / Tráfego Pesado',
     description:
       'Mistura asfáltica com asfalto de alto módulo para aplicações estruturais conforme projeto.',
     items: [
@@ -360,7 +418,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
   },
   {
     id: 'base-asfaltica',
-    number: 10,
+    number: 11,
     name: 'Base Asfáltica',
     badge: 'Camada Estrutural',
     description:
@@ -378,7 +436,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
   },
   {
     id: 'pre-misturado-a-quente',
-    number: 11,
+    number: 12,
     name: 'Pré-Misturado a Quente',
     badge: 'PMQ DER',
     description:
@@ -412,9 +470,9 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
   },
   {
     id: 'mistura-drenante',
-    number: 12,
+    number: 13,
     name: 'Mistura Drenante',
-    badge: 'Segurança Hidráulica',
+    badge: 'Segurança Hidráulica / CPA',
     description:
       'Mistura asfáltica desenvolvida para aplicações que demandam características drenantes.',
     items: [
@@ -430,7 +488,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
   },
   {
     id: 'microrrevestimento',
-    number: 13,
+    number: 14,
     name: 'Microrrevestimento',
     badge: 'Manutenção / Revestimento Fino',
     description:
@@ -448,7 +506,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
   },
   {
     id: 'mistura-morna',
-    number: 14,
+    number: 15,
     name: 'Mistura Morna',
     badge: 'Sustentabilidade / Menor Emissão',
     description:
@@ -502,7 +560,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
     id: 'areia-asfalto',
     number: 17,
     name: 'Areia-Asfalto',
-    badge: 'Agregado Miúdo',
+    badge: 'Agregado Miúdo / AAUQ',
     description:
       'Mistura asfáltica produzida com areia e ligante asfáltico para aplicações específicas.',
     items: [
