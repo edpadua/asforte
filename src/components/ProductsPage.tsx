@@ -253,7 +253,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({
                   onClick={handleScrollToCatalog}
                   className="bg-transparent hover:bg-white/10 text-white font-condensed font-extrabold uppercase tracking-wider text-xs sm:text-sm px-7 sm:px-9 py-4 rounded-none border border-white/80 transition-all duration-200 cursor-pointer hover:-translate-y-0.5 inline-flex items-center gap-2"
                 >
-                  <span>Ver catálogo de famílias ({totalProductsCount} traços)</span>
+                  <span>Ver catálogo de produtos</span>
                 </a>
               </motion.div>
             </motion.div>
