@@ -344,7 +344,7 @@ export const CompanyPage: React.FC<CompanyPageProps> = ({ onOpenQuoteModal, onNa
                       Asforte Concreto Asfáltico LTDA
                     </p>
                     <p className="font-barlow text-[8px] sm:text-xs text-slate-500 leading-tight">
-                      Av. São Afonso Maria, 381, Bairro da Pernambucana
+                      Avenida Sete, 201 - Jardim São Judas Tadeu
                     </p>
                   </div>
                 </div>

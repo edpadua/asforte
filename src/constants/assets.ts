@@ -82,7 +82,7 @@ export const LOCATION_ASSETS = {
       image: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$63hn1ghhyia',
       title: 'São José dos Campos | SP',
       subtitle1: 'Asforte Concreto Asfáltico LTDA',
-      subtitle2: 'Av. São Afonso Maria, 381, Bairro da Pernambucana',
+      subtitle2: 'Avenida Sete, 201 - Jardim São Judas Tadeu',
     },
   ],
   santaIsabelIcon: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$cxt1huoy7ew',
@@ -133,7 +133,7 @@ export const COMPANY_CAROUSEL_IMAGES = [
 
 export const COMPANY_UNIDADES_ASSETS = {
   sjcImage: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$63hn1ghhyia',
-  sjcMapUrl: 'https://www.google.com/maps/search/?api=1&query=Asforte+Concreto+Asf%C3%A1ltico+Av.+S%C3%A3o+Afonso+Maria,+381,+Bairro+da+Pernambucana,+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP',
+  sjcMapUrl: 'https://www.google.com/maps/search/?api=1&query=Asforte+Concreto+Asf%C3%A1ltico+Avenida+Sete,+201+-+Jardim+S%C3%A3o+Judas+Tadeu,+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP',
   santaIsabelImage: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$nhwbxe39ebi',
   santaIsabelMapUrl: 'https://www.google.com/maps/search/?api=1&query=Pedreira+Pedraforte+Rod.+Pres.+Dutra,+KM+194,5,+Santa+Isabel+-+SP',
 };
@@ -162,7 +162,7 @@ export const NAV_LINKS = [
   { name: 'Empresa', href: '#empresa' },
   { name: 'Produtos', href: '#produtos' },
   { name: 'Setores Atendidos', href: '#setores' },
-  { name: 'Blog', href: '#blog' },
+  // { name: 'Blog', href: '#blog' }, // Ocultado temporariamente dos menus
   { name: 'Contato', href: '#contato' },
 ];
 
@@ -171,5 +171,5 @@ export const CONTACT_INFO = {
   whatsapp: '(11) 2500-3599',
   email: 'comercial@asforte.com.br',
   plantAddress: 'Rodovia Presidente Dutra, Km 189 - Santa Isabel / SP',
-  hqAddress: 'São José dos Campos / SP - Polo Industrial Vale do Paraíba',
+  hqAddress: 'Avenida Sete, 201 - Jardim São Judas Tadeu',
 };

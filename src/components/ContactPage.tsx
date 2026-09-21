@@ -778,7 +778,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ preselectedProduct }) 
                         Asforte Concreto Asfáltico LTDA
                       </div>
                       <div className="font-condensed text-xs sm:text-sm text-slate-600 font-semibold">
-                        Av. São Afonso Maria, 381, Bairro da Pernambucana
+                        Avenida Sete, 201 - Jardim São Judas Tadeu
                       </div>
                       <div className="font-condensed text-[11px] text-slate-500 mt-0.5">
                         Unidade estrategicamente localizada para atender a RMSP e o Vale do Paraíba.

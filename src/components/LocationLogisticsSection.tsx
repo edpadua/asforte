@@ -296,7 +296,7 @@ export const LocationLogisticsSection: React.FC<LocationLogisticsSectionProps> =
                       Asforte Concreto Asfáltico LTDA
                     </div>
                     <div className="font-condensed text-xs sm:text-sm text-slate-600 font-semibold">
-                      Av. São Afonso Maria, 381, Bairro da Pernambucana
+                      Avenida Sete, 201 - Jardim São Judas Tadeu
                     </div>
                   </div>
                 </div>
