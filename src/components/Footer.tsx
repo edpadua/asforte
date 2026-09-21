@@ -155,8 +155,22 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </div>
 
               <div className="pt-2 space-y-1.5 text-xs text-slate-300">
-                <p>{CONTACT_INFO.phone}</p>
-                <p>{CONTACT_INFO.email}</p>
+                <p>
+                  <a
+                    href={`tel:+55${CONTACT_INFO.phone.replace(/\D/g, '')}`}
+                    className="hover:text-white transition-colors"
+                  >
+                    {CONTACT_INFO.phone}
+                  </a>
+                </p>
+                <p>
+                  <a
+                    href={`mailto:${CONTACT_INFO.email}`}
+                    className="hover:text-white transition-colors"
+                  >
+                    {CONTACT_INFO.email}
+                  </a>
+                </p>
                 <p className="text-slate-400">Segunda a Sexta: 07:00 às 17:00</p>
               </div>
             </div>
