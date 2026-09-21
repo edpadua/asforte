@@ -11,7 +11,7 @@ export const LOGOS = {
 
 export const HERO_ASSETS = {
   backgroundMap: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$5wts6yp13gr',
-  heroPlantImage: 'https://d335luupugsy2.cloudfront.net/cms/files/38500/1785504703/$ozj3vyhk6vn',
+  heroPlantImage: '/imports/asforte-hero.jpg',
 };
 
 export const PRODUCTION_CAROUSEL_IMAGES = [
