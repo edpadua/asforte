@@ -238,16 +238,16 @@ export const LocationLogisticsSection: React.FC<LocationLogisticsSectionProps> =
             </div>
 
             {/* Distances Box (Orange Header/Background) */}
-            <div className="bg-[#E3371E] p-4 sm:p-5 text-white shadow-md">
+            <div className="@container overflow-hidden bg-[#E3371E] p-3.5 sm:p-5 text-white shadow-md">
               <h4 className="font-condensed font-black text-center text-xs sm:text-sm uppercase tracking-wider mb-3.5 border-b border-white/20 pb-2">
                 DISTÂNCIAS ATÉ A PEDREIRA PEDRAFORTE
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 font-condensed text-xs sm:text-sm">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-x-6 gap-y-2 font-condensed text-xs sm:text-sm">
                 {santaIsabelDistances.map((item) => (
-                  <div key={item.city} className="flex items-center justify-between gap-1">
+                  <div key={item.city} className="flex items-center justify-between gap-1.5 min-w-0 py-0.5">
                     <span className="font-bold shrink-0">{item.city}</span>
-                    <span className="border-b border-white/40 grow mx-1 my-auto"></span>
-                    <span className="font-bold shrink-0 whitespace-nowrap text-right">{item.distance}</span>
+                    <span className="border-b border-white/40 grow mx-1 my-auto min-w-[8px]"></span>
+                    <span className="font-bold shrink-0 whitespace-nowrap text-right tabular-nums">{item.distance}</span>
                   </div>
                 ))}
               </div>
@@ -321,16 +321,16 @@ export const LocationLogisticsSection: React.FC<LocationLogisticsSectionProps> =
             </div>
 
             {/* Distances Box (Dark Blue Background) */}
-            <div className="bg-[#192F4D] p-4 sm:p-5 text-white shadow-md">
+            <div className="@container overflow-hidden bg-[#192F4D] p-3.5 sm:p-5 text-white shadow-md">
               <h4 className="font-condensed font-black text-center text-xs sm:text-sm uppercase tracking-wider mb-3.5 border-b border-white/20 pb-2">
                 DISTÂNCIAS ATÉ A ASFORTE
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 font-condensed text-xs sm:text-sm">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-x-6 gap-y-2 font-condensed text-xs sm:text-sm">
                 {sjcDistances.map((item) => (
-                  <div key={item.city} className="flex items-center justify-between gap-1">
+                  <div key={item.city} className="flex items-center justify-between gap-1.5 min-w-0 py-0.5">
                     <span className="font-bold shrink-0">{item.city}</span>
-                    <span className="border-b border-white/30 grow mx-1 my-auto"></span>
-                    <span className="font-bold shrink-0 whitespace-nowrap text-right">{item.distance}</span>
+                    <span className="border-b border-white/30 grow mx-1 my-auto min-w-[8px]"></span>
+                    <span className="font-bold shrink-0 whitespace-nowrap text-right tabular-nums">{item.distance}</span>
                   </div>
                 ))}
               </div>
